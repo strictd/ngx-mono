@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/" />
+    <meta charset="utf-8">
+    <meta name="robots" content="index,follow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Registration Service, Strict Development Inc</title>
+    <link rel="icon" type="image/x-icon" href="icon/favicon.ico">
+  </head>
+  <body>
+    <strictd-registration></strictd-registration>
+
+    <script type="text/javascript" src="https://js.squareup.com/v2/paymentform"></script>
+    <script src='https://www.google.com/recaptcha/api.js?onload=recaptchaOnLoad&render=explicit' async defer></script>
+    <script>
+      function recaptchaOnLoad() {
+        window['registrationRef'].zone.run(() => {
+          window['registrationRef'].component.recaptchaOnload();
+        });
+      }
+    </script>
+  </body>
+</html>

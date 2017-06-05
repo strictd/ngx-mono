@@ -1,0 +1,12 @@
+title: ngx-mono Reference
+
+toc_footers:
+
+includes:
+  - main
+  - _setup
+  - _http
+
+search: true
+
+highlight_theme: monokai

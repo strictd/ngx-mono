@@ -1,0 +1,68 @@
+footer{
+	display: block;
+	width: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-top: -6px;
+  padding: 0;
+	color: #fff;
+  background-color: #333;
+  
+}
+.footer_priv{
+	padding: 16px 0 60px 0px;
+}
+
+p.txt_priv{
+	color:#adadad;
+	font:300 14px/16px;
+  font-family: fufont;
+	margin-top: 10px;
+	float: left;
+	letter-spacing: 1.5px;  
+}
+.txt_priv .fw400{text-transform: uppercase;}
+
+
+/*----------- start social icons ----------------*/
+
+.soc_icons {
+	position: relative;
+	display: block;
+	margin-top: 1px;
+	white-space: nowrap;
+	text-align: left;
+	margin-left: 1px;
+	float: right;
+}
+.soc_icons > li {
+	position: relative;
+	display: inline-block;
+	margin-left: 3px;
+}
+.soc_icons > li > a {
+	position: relative;
+	color: #fff;
+	line-height: 1em;
+	-webkit-transition: all 0.4s ease-out;
+	-moz-transition: all 0.4s ease-out;
+	-o-transition: all 0.4s ease-out;
+	transition: all 0.4s ease-out;
+	width: 36px;
+	height: 36px;
+	display: inline-block;
+	background: #565e6c;
+	text-align: center;
+	font: normal normal 19px/36px 'FontAwesome';
+	border-radius: 500px;
+}
+.soc_icons i{font: normal normal 18px/36px 'FontAwesome';}
+.soc_icons > li > a:hover {
+	color: #fff;
+	text-decoration: none;
+	background: #ff5434;
+}
+h4 i{font: normal normal 30px/36px 'FontAwesome'; color: #5d6166; margin-right: 17px;}
+
+
+
+/*----------- end social icons ----------------*/

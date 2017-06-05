@@ -1,0 +1,19 @@
+{
+  "name": "com.strictd.angular.registration",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "node ../../node_modules/tslint/bin/tslint --force \"src/**/*.ts\" --config ../../_scripts/tslint.json",
+
+    "dev": "node ../../node_modules/concurrently/src/main.js --kill-others \"npm run start\" \"npm run api\"",
+    
+    "start": "node ../../node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ../../_scripts/webpack-ng.js --env .env",
+    "build": "node ../../node_modules/webpack/bin/webpack.js --progress --profile --bail --config ../../_scripts/webpack-ng.js --env .env",
+    
+    "api": "npm run api:start",
+    "preapi": "npm run api:build",
+    "api:start": "node ./bin/registration-api.js",
+    "api:build": "node ../../node_modules/webpack/bin/webpack.js ./src/api/registration-api.ts ./bin/registration-api.js --config ../../_scripts/webpack-cli.js --env .env",
+    "api:watch": "node ../../node_modules/webpack/bin/webpack.js ./src/api/registration-api.ts ./bin/registration-api.js --watch --config ../../_scripts/webpack-cli.js --env .env",
+    "api:pkg": "node ../../node_modules/pkg/lib-es5/bin.js ./bin/registration-api.js --out-dir ./bin"    
+  }
+}

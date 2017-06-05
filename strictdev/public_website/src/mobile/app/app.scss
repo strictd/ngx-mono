@@ -1,0 +1,185 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+@font-face {
+  font-family: 'fufontEB';
+  src: url('../fonts/FuturaStd-ExtraBold.eot') format('embedded-opentype'),
+        url('../fonts/FuturaStd-ExtraBold.woff') format('woff'),
+        url('../fonts/FuturaStd-ExtraBold.ttf') format('truetype'),
+        url('../fonts/FuturaStd-ExtraBold.svg#FuturaStd-ExtraBold') format('svg');
+}
+
+
+.toolbar-background {
+  background-color: #000;
+  color: #fff;
+}
+
+.navbar-brand {
+  margin-top: 4px;
+	margin-left: 3em;
+	font-family: "fufontEB";
+	letter-spacing: 1.25px;
+	line-height: 32px;
+	font-size: 13pt;
+	color: white;
+  z-index: 2;
+}
+
+.strictd_logo_box {
+  position: absolute;
+  top: 0;
+  margin-top: 0;
+}
+.strictd_logo {
+  width: 2em;
+  position: absolute;
+}
+img.strictd_logo { max-width: 2em; }
+
+.strictd_circle {
+  z-index: 0;
+  width: 2em;
+	height: 2em;
+  margin: -3px -3px auto;
+	-moz-border-radius: 42px;
+	-webkit-border-radius: 42px;
+	border-radius: 3em;
+  position: absolute;
+  background: white;
+	animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	animation: load 3s infinite linear reverse;
+	margin-left: 2px;
+	margin-top: -2px;
+}
+
+@keyframes load {
+  0% {
+    margin-left: 2px; margin-top: -2px; /*Top Right*/
+  }
+
+  80% {
+    margin-left: 2px; margin-top: -2px; /*Top Right*/
+  }
+
+	85%{
+		margin-left: 0px; margin-top: -2px; /*Top*/
+	}
+
+  88%{
+    margin-left: -2px; margin-top: -2px; /*Top Left*/
+  }
+
+  89%{
+    margin-left: -2px; margin-top: 0px; /*Left*/
+  }
+
+  90%{
+    margin-left: -2px; margin-top: 2px; /*Bottom Left*/
+  }
+
+	91%{
+		margin-left: 0px; margin-top: 2px; /*Bottom*/
+	}
+
+  92% {
+    margin-left: 1px; margin-top: 2px; /*Bottom Right*/
+  }
+
+  95%{
+    margin-left: 2px; margin-top: 0px; /*Right*/
+  }
+
+  100% {
+    margin-left: 2px; margin-top: -2px; /*Top Right*/
+  }
+}
+
+@keyframes load2 {
+  0% {
+    margin-left: 2px; margin-top: -2px; /*Top Right*/
+  }
+
+  11% {
+    margin-left: 2px; margin-top: -2px; /*Top Right*/
+  }
+
+	22%{
+		margin-left: 0px; margin-top: -2px; /*Top*/
+	}
+
+  33%{
+    margin-left: -2px; margin-top: -2px; /*Top Left*/
+  }
+
+  44%{
+    margin-left: -2px; margin-top: 0px; /*Left*/
+  }
+
+  55%{
+    margin-left: -2px; margin-top: 2px; /*Bottom Left*/
+  }
+
+	66%{
+		margin-left: 0px; margin-top: 2px; /*Bottom*/
+	}
+
+  77% {
+    margin-left: 1px; margin-top: 2px; /*Bottom Right*/
+  }
+
+  88%{
+    margin-left: 2px; margin-top: 0px; /*Right*/
+  }
+
+  100% {
+    margin-left: 2px; margin-top: -2px; /*Top Right*/
+  }
+}
+
+
+.txt3 {
+	font:300 33px/22px fufont;
+	color:#f15f43;
+	margin-top: 10px;
+	text-transform: uppercase;
+	padding-top: 13px;
+	text-align: center;
+}
+
+.txt4 {
+	font:600 27px/31px 'Open Sans', Arial, sans-serif;
+	color:#323841;
+	margin-top: 26px;
+	text-transform: uppercase;
+	text-align: center;
+}
+.txt5 {
+	font:20px/28px 'Open Sans', Arial, sans-serif;
+	color:#323841;
+	margin-top: 28px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: justify;
+}
+
+.call_to_action {
+	padding: 4px 8px;
+	border: 3px solid;
+	border-radius: 6px;
+}

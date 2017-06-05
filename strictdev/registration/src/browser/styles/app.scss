@@ -1,0 +1,54 @@
+body {
+  background-color: rgb(255, 255, 255);
+  color: #000;
+  font-family: Verdana, Arial;
+}
+
+a {
+  color: #000080;
+  text-decoration: none;
+}
+a:hover {
+  color: #000080;
+  text-decoration: underline;
+}
+a:visited {
+  color: #000080;
+}
+a:active {
+  color: #000080;
+}
+
+.sq-input {
+  border: 1px solid black;
+  padding: 4px;
+  width: auto;
+  outline-offset: -2px;
+  margin-bottom: 5px;
+  height: 2em;
+}
+
+#sq-card-number {
+  width: 200px;
+}
+
+#sq-cvv, #sq-expiration-date {
+  width: 80px;
+}
+
+#sq-postal-code {
+  width: 120px;
+}
+
+.sq-input--focus {
+  /* Indicates how form inputs should appear when they have focus */
+  outline: 5px auto rgb(59, 153, 252);
+}
+.sq-input--error {
+  /* Indicates how form inputs should appear when they contain invalid values */
+  outline: 5px auto rgb(255, 97, 97);
+}
+
+.g-recaptcha div { margin: auto; }
+
+.clear { clear: both; }

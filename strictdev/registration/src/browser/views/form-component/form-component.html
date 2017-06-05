@@ -1,0 +1,104 @@
+<div class="form-content">
+  <form #regForm="ngForm"  (ngSubmit)="submitApplication($event)">
+
+    <div class="form-group row">
+      <label class="col-sm-2">Name<span *ngIf="name.errors" style="color: red">*</span></label>
+      <div class="col-sm-5">
+        <input type="text" #name="ngModel" [class.required]="name.errors" class="form-control" required [(ngModel)]="form.first" name="first" placeholder="First Name" />
+      </div>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" [(ngModel)]="form.last" name="last" placeholder="Last Name" />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">E-Mail</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" [(ngModel)]="form.email" name="email" placeholder="tom@myspace.com"/>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2">Phone</label>
+      <div class="col-sm-2">
+        <input type="tel" class="form-control" [(ngModel)]="form.phone_area" name="phone_area" maxlength="3" placeholder="###" />
+      </div>
+      <div class="col-sm-8">
+        <input type="tel" class="form-control" [(ngModel)]="form.phone" name="phone" placeholder="###-####" />
+      </div>
+    </div>
+
+
+<!-- 
+    <div class="form-group row">
+      <label class="col-sm-12 col-form-label">When was the last group ride you took part in?<span *ngIf="motorcycle_last_ride.errors" style="color: red">*</span></label>
+      <div class="col-sm-12">
+        <input #motorcycle_last_ride="ngModel" type="text" [class.required]="motorcycle_last_ride.errors" class="form-control" required [(ngModel)]="form.motorcycle_last_ride" name="motorcycle_last_ride" placeholder=""/>
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label class="col-sm-12 col-form-label">How many years of riding experience do you currently have?<span *ngIf="motorcycle_experience.errors" style="color: red">*</span></label>
+      <div class="col-sm-12">
+        <input #motorcycle_experience="ngModel" type="text" [class.required]="motorcycle_experience.errors" class="form-control" required [(ngModel)]="form.motorcycle_experience" name="motorcycle_experience" placeholder=""/>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-12 col-form-label">What Size engine does your motorcycle have?<span *ngIf="motorcycle_size.errors" style="color: red">*</span></label>
+      <div class="col-sm-12">
+        <input #motorcycle_size="ngModel" type="text" [class.required]="motorcycle_size.errors" class="form-control" required [(ngModel)]="form.motorcycle_size" name="motorcycle_size" placeholder=""/>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-12 col-form-label">What style motorcycle do you ride?<span *ngIf="motorcycle_style.errors" style="color: red">*</span></label>
+      <div class="col-sm-12">
+        <select #motorcycle_style="ngModel" [class.required]="motorcycle_style.errors" class="form-control" required [(ngModel)]="form.motorcycle_style" name="motorcycle_style">
+          <option value=""></option>
+          <option value="Sport">Sport</option>
+          <option value="Crusier">Cruiser</option>
+          <option value="Tri-Wheeler">Tri-Wheeler</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-12 col-form-label">At what level do you consider your motorcycle riding skills?<span *ngIf="motorcycle_skill.errors" style="color: red">*</span></label>
+      <div class="col-sm-12">
+        <select #motorcycle_skill="ngModel" [class.required]="motorcycle_skill.errors" class="form-control" required [(ngModel)]="form.motorcycle_skill" name="motorcycle_skill">
+          <option value=""></option>
+          <option value="Beginner">Beginner</option>
+          <option value="Basics">Know the basics</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-12 col-form-label">Why do you like riding motorcycles?</label>
+      <div class="col-sm-12">
+        <textarea rows="4" class="form-control" [(ngModel)]="form.motorcycle_like_riding" name="motorcycle_like_riding" placeholder=""></textarea>
+      </div>
+    </div>
+    -->
+    <div id="g-recaptcha" [class.required]="!gotCaptcha" style="width: 305px;"></div>
+    
+    <hr />
+
+    <div class="row">
+      <div class="col-sm-12" style="text-align: center">
+        <br />
+        <div *ngIf="!regForm.form.valid || !gotCaptcha">
+          Must fill out all Required fields, marked with <span style="border:1px solid red;">Red<span style="color: red">*</span></span>, before submitting
+        </div>
+
+        <button type="submit" *ngIf="!sending && gotCaptcha && regForm.form.valid" [disabled]="!regForm.form.valid" class="btn btn-danger">Sign up</button>
+        <button type="submit" *ngIf="!sending && (!gotCaptcha || !regForm.form.valid)" [disabled]="!regForm.form.valid || !gotCaptcha" class="btn btn-danger">Must Complete All Red Form Fields</button>
+        <button type="button" *ngIf="sending" [disabled]="true" class="btn btn-danger">... Please Wait, Processing ...</button>
+      </div>
+    </div>
+  </form>
+</div>

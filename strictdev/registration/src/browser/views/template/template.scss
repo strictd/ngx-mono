@@ -1,0 +1,40 @@
+body {
+  min-height: 100%;
+  background-color: #333;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+.main_content {
+  max-width: 760px;
+  margin: 20px auto;
+  background-color: #FFF;
+  border: 1px solid black;
+}
+
+.header {
+  width: 100%;
+  min-height: 150px;
+  text-align: center;
+  background-color: #270563;
+  padding-top: 10px;
+}
+
+.content {
+   max-width: 600px;
+   margin: 0 auto;
+}
+
+.footer {
+  clear: both;
+  border-top: 1px solid black;
+  background-color: #AAA;
+  padding: 6px;
+  font-size: 10px;
+}
+
+.footer a {
+  text-decoration: underline;
+  color: #000;
+}

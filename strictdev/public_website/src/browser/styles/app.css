@@ -1,0 +1,218 @@
+@import "../../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../../../../../node_modules/font-awesome/css/font-awesome.css";
+
+@font-face {
+   font-family: "fufontEB";
+   src: url(/fonts/FuturaStd-ExtraBold.ttf) format("truetype");
+}
+@font-face {
+   font-family: "fufont";
+   src: url(/fonts/Futura-Medium.ttf) format("truetype");
+}
+
+body {
+	background-color: #333;
+}
+
+.navbar-strictd {
+  min-height: 7em;
+}
+
+.bubbles {
+	background-image: url(/img/bubbles.jpg);
+	width: 100%;
+	padding-top: 1px;
+	background-repeat: no-repeat;
+	margin: inherit;
+	background-size: 100%;
+	display: -moz-grid !important;
+	display: inline-table;
+}
+
+.img-box {
+	top: -220px;
+	position: relative;
+}
+
+.white_space {
+	height: 20em;
+	background-color: white;
+}
+.orange_bar {
+	height:12px;
+	background:#ff6700;
+}
+
+.desc_bubble{
+		border-radius: 5px;
+    width: 69%;
+    height: 100%;
+    background: #f6f6f9;
+    position: initial;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 10px;
+		margin-top: 1em;
+		padding-bottom: 16px;
+		border: 5px solid #000;
+}
+
+.txt3 {
+	font:300 33px/22px fufont;
+	color:#f15f43;
+	margin-top: 10px;
+	text-transform: uppercase;
+	padding-top: 13px;
+	text-align: center;
+}
+
+.txt4 {
+	font:600 27px/31px 'Open Sans', Arial, sans-serif;
+	color:#323841;
+	margin-top: 26px;
+	text-transform: uppercase;
+	text-align: center;
+	width: 100%;
+}
+.txt5 {
+	font:20px/28px 'Open Sans', Arial, sans-serif;
+	color:#323841;
+	margin-top: 28px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: justify;
+}
+
+.call_to_action {
+	padding: 4px 8px;
+	border: 3px solid;
+	border-radius: 6px;
+}
+@media only screen and (max-width: 979px) {
+	.desc_bubble {
+		width: 96%;
+	}
+	.desc_bubble .container {
+		padding: 5px;
+	}
+}
+
+
+.navbar-brand {
+  margin-top: 18px;
+	margin-left: 5em;
+	font-family: fufontEB;
+	letter-spacing: 1.25px;
+	line-height: 32px;
+	font-size: 18pt;
+	color: white;
+}
+
+.strictd_logo_box {
+  position: absolute;
+  top: 8px;
+}
+.strictd_logo {
+  width: 6em;
+  position: absolute;
+}
+.strictd_circle {
+  z-index: 0;
+  width: 6em;
+	height: 6em;
+  margin: -3px -3px auto;
+	-moz-border-radius: 42px;
+	-webkit-border-radius: 42px;
+	border-radius: 3em;
+  position: absolute;
+  background: white;
+	animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	animation: load 3s infinite linear reverse;
+	margin-left: 2px;
+	margin-top: -2px;
+}
+
+@keyframes load {
+  0% {
+    margin-left: 2px; margin-top: -2px; /*Top Right*/
+  }
+
+  80% {
+    margin-left: 2px; margin-top: -2px; /*Top Right*/
+  }
+
+	85%{
+		margin-left: 0px; margin-top: -2px; /*Top*/
+	}
+
+  88%{
+    margin-left: -2px; margin-top: -2px; /*Top Left*/
+  }
+
+  89%{
+    margin-left: -2px; margin-top: 0px; /*Left*/
+  }
+
+  90%{
+    margin-left: -2px; margin-top: 2px; /*Bottom Left*/
+  }
+
+	91%{
+		margin-left: 0px; margin-top: 2px; /*Bottom*/
+	}
+
+  92% {
+    margin-left: 1px; margin-top: 2px; /*Bottom Right*/
+  }
+
+  95%{
+    margin-left: 2px; margin-top: 0px; /*Right*/
+  }
+
+  100% {
+    margin-left: 2px; margin-top: -2px; /*Top Right*/
+  }
+}
+
+@keyframes load2 {
+  0% {
+    margin-left: 2px; margin-top: -2px; /*Top Right*/
+  }
+
+  11% {
+    margin-left: 2px; margin-top: -2px; /*Top Right*/
+  }
+
+	22%{
+		margin-left: 0px; margin-top: -2px; /*Top*/
+	}
+
+  33%{
+    margin-left: -2px; margin-top: -2px; /*Top Left*/
+  }
+
+  44%{
+    margin-left: -2px; margin-top: 0px; /*Left*/
+  }
+
+  55%{
+    margin-left: -2px; margin-top: 2px; /*Bottom Left*/
+  }
+
+	66%{
+		margin-left: 0px; margin-top: 2px; /*Bottom*/
+	}
+
+  77% {
+    margin-left: 1px; margin-top: 2px; /*Bottom Right*/
+  }
+
+  88%{
+    margin-left: 2px; margin-top: 0px; /*Right*/
+  }
+
+  100% {
+    margin-left: 2px; margin-top: -2px; /*Top Right*/
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "strictd_docs",
+  "version": "1.0.0",
+  "description": "Strict Development Docs",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp --gulpfile ../../_scripts/gulpfile_slate-docs.js serve",
+    "build": "gulp --gulpfile ../../_scripts/gulpfile_slate-docs.js"
+  }
+}

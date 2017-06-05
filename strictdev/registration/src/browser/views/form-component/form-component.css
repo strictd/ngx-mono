@@ -1,0 +1,12 @@
+input.required, select.required, div.required {
+  border: 1px solid red;
+}
+.form_error {
+  font-size: 12pt;
+  color: #C33;
+  text-align: center;
+}
+.form-content {
+  max-width: 760px;
+  margin: 0 auto;
+}

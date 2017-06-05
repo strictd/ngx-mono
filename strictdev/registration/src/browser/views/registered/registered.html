@@ -1,0 +1,107 @@
+<template-component>
+  <h2>Registration Info</h2>
+
+  <div *ngIf="findingAccount">
+    <h4>Please wait while we look up your account.</h4>
+    <br /><br />
+    <div class="payment-loader-container">
+      <div class="payment-loader">
+        <div class="payment-circle">
+          <div class="payment-inner-circle">
+          </div>
+          <!--<h1><i class="glyphicon glyphicon-heart-empty"></i></h1>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div [hidden]="findingAccount">
+    <div *ngIf="noAccountFound">
+      Unfortunitly we were not able to find a registration for this URL.
+      <br />
+      <a [routerLink]="['/']">Click Here To Register</a>
+    </div>
+
+    <div *ngIf="info">
+      <strong>Hello, {{ info[0] }}!!</strong> Thank you for signing up
+
+      <br />
+      <a [routerLink]="['/']">Return to Signup Page</a>
+    </div>
+    <br />
+
+    <!--
+      <p *ngIf="!paidUp" [hidden]="!hasAccount" class="cost">$30.00 per person is due anytime before the ride!</p>
+    <br />
+
+    <div class="col-md-6" [hidden]="!hasAccount"  *ngIf="!paidUp">
+      <div>
+        <label for="sq-amount">Amount: $<input type="number" value="30" [(ngModel)]="amount" step="0.01" size="5" /></label>
+      </div>
+      <div>
+        <label>Card Number</label><br />
+        <div id="sq-card-number"></div>
+      </div>
+      
+      <div style="float: left;">
+        <label>CVV</label><br />
+        <div id="sq-cvv"></div>
+      </div>
+
+      <div style="float: left;margin-left: 15px;">
+        <label>Expiration Date</label><br />
+        <div id="sq-expiration-date"></div>
+      </div>
+      
+      <div style="clear: left;">
+        <label>Postal Code</label><br />
+        <div id="sq-postal-code" width="100px"></div>
+      </div>
+
+      <button type="button" class="btn btn-danger" [disabled]="processingPayment" (click)="requestCardNonce($event)">
+        <img src="img/square_logo.png" height="30" width="30"> Pay With Square Up!</button>
+    </div>
+
+    <div class="col-md-6" *ngIf="!paidUp" style="text-align: center">
+      <div *ngIf="hasCardErrors" class="cardErrors">
+        <h3>Encountered Errors</h3>
+        <p *ngFor="let card of hasCardErrors">- {{ card }}<p>
+      </div>
+
+
+      <div *ngIf="!processingPayment && !hasCardErrors && hasAccount">
+        <h4>Secure Communications Provided By</h4>
+        <a href="https://www.instantssl.com/ssl-certificate-products/ev-mdc-ssl-certificate.html">
+          <img src="https://ssl.comodo.com/images/comodo_secure_seal_113x59_transp.png" alt="EV MDC SSL" width="113" height="59" style="border: 0px;">
+          <br /><span style="font-weight:bold; font-size:7pt">256-bit Extended Validation<br />Strict Development, Inc.</span>
+        </a>
+        <br /><br />
+        <h4>Credit Card Processing With</h4>
+        <img src="img/cc_logo.png" width="250" border="0" />
+      </div>
+
+      <div *ngIf="processingPayment" class="processPayment">
+        <div class="payment-loader-container">
+          <div class="payment-loader">
+            <div class="payment-circle">
+              <div class="payment-inner-circle">
+              </div>
+              <h1><i class="glyphicon glyphicon-heart-empty"></i></h1>
+            </div>
+          </div>
+        </div>
+        <h3>Processing Payment</h3>
+      </div>
+    </div>
+
+    <div *ngIf="processingSuccess" class="processSuccess">
+      <div style="font-size: 14pt;color:#3A3;">Success!!</div>
+      <div>Your Payment has processed!</div>
+    </div>
+
+    <div *ngIf="paidUp">
+      <div style="font-size: 14pt;">You're all paid up! Look forward to seeing you at the ride! Don't forget your helmet!</div>
+    </div>
+    -->
+  </div>
+</template-component>

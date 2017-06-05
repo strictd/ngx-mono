@@ -1,0 +1,24 @@
+{
+  "name": "com.strictd.angular.squareup-auth",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "node ../../node_modules/tslint/bin/tslint --force \"src/**/*.ts\" --config ../../_scripts/tslint.json",
+
+    "api": "npm run api:start",
+    "preapi": "npm run api:build",
+
+    "publish": "npm run api:build",
+    "api:start": "node ./bin/squareup-auth-api.js",
+    "api:build": "node ../../node_modules/webpack/bin/webpack.js ./src/api/squareup-auth-api.ts ./bin/squareup-auth-api.js --config ../../_scripts/webpack-cli.js",
+
+    "pkg": "node ../../node_modules/pkg/lib-es5/bin.js ./bin/squareup-auth-api.js --out-dir ./bin",
+    "pkg:win": "node ../../node_modules/pkg/lib-es5/bin.js ./bin/squareup-auth-api.js --out-dir ./bin --target latest-win-x64",
+    "pkg:fbsd": "node ../../node_modules/pkg/lib-es5/bin.js ./bin/squareup-auth-api.js --out-dir ./bin --target latest-freebsd-x64",
+    "pkg:mac": "node ../../node_modules/pkg/lib-es5/bin.js ./bin/squareup-auth-api.js --out-dir ./bin --target latest-macos-x64",
+    "pkg:linux": "node ../../node_modules/pkg/lib-es5/bin.js ./bin/squareup-auth-api.js --out-dir ./bin --target latest-link-x64",
+    "pkg:win:32": "node ../../node_modules/pkg/lib-es5/bin.js ./bin/squareup-auth-api.js --out-dir ./bin --target latest-win-x86",
+    "pkg:fbsd:32": "node ../../node_modules/pkg/lib-es5/bin.js ./bin/squareup-auth-api.js --out-dir ./bin --target latest-freebsd-x86",
+    "pkg:mac:32": "node ../../node_modules/pkg/lib-es5/bin.js ./bin/squareup-auth-api.js --out-dir ./bin --target latest-macos-x86",
+    "pkg:linux:32": "node ../../node_modules/pkg/lib-es5/bin.js ./bin/squareup-auth-api.js --out-dir ./bin --target latest-link-x86"
+  }
+}

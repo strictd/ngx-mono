@@ -30,7 +30,7 @@ process.env.PORT = 4001;
 // process.env.GOOGLE_API_SHEET = '';
 // process.env.GOOGLE_API_EMAIL = '';
 // process.env.GOOGLE_API_CERT = '';
-process.env.GOOGLE_CAPTCHA = '';
+process.env.GOOGLE_CAPTCHA = '6LfS7xMUAAAAADwyLK9azcHroZou2UN72ghMRm3P'; // ReCaptcha Serverside Key
 
 process.env.SHIRTID_CASESENSITIVE = false;
 process.env.SHORTID_CHARS = '23456789-ABCDEFGHJKLMNPQRSTVWXYZ';

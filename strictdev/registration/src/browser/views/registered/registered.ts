@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { RegistrationService } from '../../../providers/registration-service';
 
-declare const SqPaymentForm;
+// declare const SqPaymentForm;
 
 @Component({
   selector: 'registered-component',
@@ -18,7 +18,7 @@ export class RegisteredComponent implements AfterViewInit {
   shortid: string;
   amount: string;
 
-  applicationId = 'sandbox-sq0idp-g0v5MBCOHFogEAj7binuVg';
+  applicationId = ''; // Squareup Application ID
 
   paymentForm: any;
   paidUp: boolean;
@@ -118,6 +118,7 @@ export class RegisteredComponent implements AfterViewInit {
   }
 
   loadPaymentForm() {
+    /*
     this.paymentForm = new SqPaymentForm({
       applicationId: this.applicationId,
       inputClass: 'sq-input',
@@ -186,5 +187,6 @@ export class RegisteredComponent implements AfterViewInit {
     });
 
     this.paymentForm.build();
+    */
   }
 }

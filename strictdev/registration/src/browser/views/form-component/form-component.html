@@ -84,7 +84,8 @@
       </div>
     </div>
     -->
-    <div id="g-recaptcha" [class.required]="!gotCaptcha" style="width: 305px;"></div>
+    <recaptcha-component #reCaptcha [isRequired]="[true]" rewidth="305px" sitekey='6LfS7xMUAAAAAGw1-DWeiqeVPAp6S0MAgrwLZo5r' (resolved)='recaptchaResolved($event)' (expired)='recaptchaExpired($event)'></recaptcha-component>
+    <!-- <div id="g-recaptcha" [class.required]="!gotCaptcha" style="width: 305px;"></div> -->
     
     <hr />
 

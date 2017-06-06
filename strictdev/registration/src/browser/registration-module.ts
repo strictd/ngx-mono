@@ -9,7 +9,9 @@ import { FormComponent } from './views/form-component/form-component';
 import { TemplateComponent } from './views/template/template';
 import { RegisteredComponent } from './views/registered/registered';
 import { RegistrationComponent } from './views/registration/registration';
-import { RegistrationService } from './../providers/registration-service';
+import { RegistrationService } from '../providers/registration-service';
+
+import { RecaptchaComponent } from '../../../utils/recaptcha/recaptcha';
 
 @NgModule({
   imports: [
@@ -22,7 +24,9 @@ import { RegistrationService } from './../providers/registration-service';
     FormComponent,
     TemplateComponent,
     RegisteredComponent,
-    RegistrationComponent
+    RegistrationComponent,
+
+    RecaptchaComponent
   ],
   exports: [
     EventInfoComponent,

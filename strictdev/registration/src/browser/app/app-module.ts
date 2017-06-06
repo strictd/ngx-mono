@@ -15,13 +15,8 @@ import { ModalModule } from '../../../../../_shared/ng2-modal';
 import { appRouting } from './app-routing';
 
 import { App } from '../app/app.component';
+import { RegistrationModule } from '../registration-module';
 
-import { EventInfoComponent } from '../views/event-info/event-info';
-import { FormComponent } from '../views/form-component/form-component';
-import { TemplateComponent } from '../views/template/template';
-import { RegisteredComponent } from '../views/registered/registered';
-import { RegistrationComponent } from '../views/registration/registration';
-import { RegistrationService } from '../../providers/registration-service';
 
 @NgModule({
   imports: [
@@ -30,21 +25,16 @@ import { RegistrationService } from '../../providers/registration-service';
     FormsModule,
     RouterModule,
     ModalModule,
-    appRouting
+    appRouting,
+    RegistrationModule.forRoot()
   ],
   declarations: [
-    App,
-    EventInfoComponent,
-    FormComponent,
-    TemplateComponent,
-    RegisteredComponent,
-    RegistrationComponent
+    App
   ],
   providers: [
     ConfigApp,
     MadameService,
-    ClassTransformer,
-    RegistrationService
+    ClassTransformer
   ],
   bootstrap: [ App ],
 })

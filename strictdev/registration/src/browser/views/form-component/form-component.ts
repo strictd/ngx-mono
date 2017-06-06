@@ -1,4 +1,4 @@
-import { Component, Output, ViewChild, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { Component, Output, ViewChild, EventEmitter } from '@angular/core';
 import { PlatformLocation } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { RegistrationService } from '../../../../src/providers/registration-serv
 @Component({
   selector: 'form-component',
   templateUrl: './form-component.html',
-  styleUrls: [ './form-component.css'.toString() ]
+  styleUrls: [ './form-component.css' ]
 })
 
 export class FormComponent {
@@ -24,18 +24,18 @@ export class FormComponent {
     recaptcha: ''
   };
   service: RegistrationService;
-  change: ChangeDetectorRef;
+  // change: ChangeDetectorRef;
   router: Router;
   route: ActivatedRoute;
 
   gotCaptcha = false;
   sending = false;
 
-  constructor(_service: RegistrationService, _change: ChangeDetectorRef,
+  constructor(_service: RegistrationService,// _change: ChangeDetectorRef,
               _router: Router, _platform: PlatformLocation,
               _route: ActivatedRoute) {
     this.service = _service;
-    this.change = _change;
+    // this.change = _change;
     this.router = _router;
     this.route = _route;
 
@@ -46,13 +46,13 @@ export class FormComponent {
   recaptchaResolved(got) {
     this.gotCaptcha = got;
     this.form.recaptcha = got;
-    this.change.detectChanges();
+    // this.change.detectChanges();
   }
 
   recaptchaExpired() {
     this.gotCaptcha = false;
     this.form.recaptcha = '';
-    this.change.detectChanges();
+    // this.change.detectChanges();
   }
 
   submitApplication() {

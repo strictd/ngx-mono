@@ -32,7 +32,7 @@ import { Component, Input } from '@angular/core';
       </div>
   </div>
   `,
-  styleUrls: [ './template-gadget.css'.toString() ]
+  styleUrls: [ './template-gadget.css' ]
 })
 export class TemplateGadget {
   @Input() gadgetClass = '';

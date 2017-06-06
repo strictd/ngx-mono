@@ -1,10 +1,11 @@
-import { Component, ViewChild, Output, EventEmitter, ChangeDetectorRef, OnDestroy, NgZone } from '@angular/core';
+import { Component, ViewChild, Output, EventEmitter, ChangeDetectorRef, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { PlatformLocation } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { RegistrationService } from '../../../../src/providers/registration-service';
 
 declare const grecaptcha: any;
+declare const window: any;
 
 @Component({
   selector: 'form-component',
@@ -12,7 +13,7 @@ declare const grecaptcha: any;
   styleUrls: [ './form-component.css'.toString() ]
 })
 
-export class FormComponent implements OnDestroy {
+export class FormComponent implements OnInit, OnDestroy {
   @ViewChild('reCaptcha') reCaptcha;
   @Output() isRegistering = new EventEmitter<boolean>();
 
@@ -28,15 +29,18 @@ export class FormComponent implements OnDestroy {
   service: RegistrationService;
   change: ChangeDetectorRef;
   router: Router;
+  route: ActivatedRoute;
 
   gotCaptcha = false;
   sending = false;
 
   constructor(_service: RegistrationService, _change: ChangeDetectorRef,
-              _router: Router, _platform: PlatformLocation, _ngZone: NgZone) {
+              _router: Router, _platform: PlatformLocation, _ngZone: NgZone,
+              _route: ActivatedRoute) {
     this.service = _service;
     this.change = _change;
     this.router = _router;
+    this.route = _route;
 
     window['registrationRef'] = { component: this, zone: _ngZone };
     window['recaptchaResolved'] = this.recaptchaResolved.bind(this);
@@ -46,20 +50,26 @@ export class FormComponent implements OnDestroy {
 
   }
 
+  ngOnInit() {
+    this.registerRecaptchaOnload();
+    this.addRecaptchaScript();
+  }
+
   ngOnDestroy() {
     window['registrationRef'] = null;
     window['recaptchaResolved'] = null;
     window['recaptchaExpired'] = null;
   }
 
-  recaptchaOnload() {
-    const params = {
-      // 'sitekey': '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
-      'sitekey': '6LfS7xMUAAAAAGw1-DWeiqeVPAp6S0MAgrwLZo5r',
-      'callback': this.recaptchaResolved,
-      'expired-callback': this.recaptchaExpired
-    };
-    grecaptcha.render('g-recaptcha', params);
+  registerRecaptchaOnload() {
+    window.recaptchaOnload = () => {
+      const params = {
+        'sitekey': '6LfS7xMUAAAAAGw1-DWeiqeVPAp6S0MAgrwLZo5r', // ReCaptcha Client Side SiteKey
+        'callback': this.recaptchaResolved,
+        'expired-callback': this.recaptchaExpired
+      };
+      grecaptcha.render('g-recaptcha', params);
+    }
   }
   recaptchaResolved(evt) {
     const t = window['registrationRef'].component;
@@ -75,6 +85,14 @@ export class FormComponent implements OnDestroy {
     t.change.detectChanges();
   }
 
+  addRecaptchaScript() {
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js?onload=recaptchaOnload&render=explicit';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+
   submitApplication() {
     if (!this.gotCaptcha) { return; }
     this.gotCaptcha = false;
@@ -84,7 +102,7 @@ export class FormComponent implements OnDestroy {
       const data = result[0] || null;
       if (!data) { throw {'message': 'no response from server'}; }
 
-      this.router.navigateByUrl(`${data.shortid}`);
+      this.router.navigate([data.shortid], { relativeTo: this.route });
     }, err => {
       this.gotCaptcha = false;
       this.sending = false;

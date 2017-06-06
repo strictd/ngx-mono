@@ -11,15 +11,6 @@
   </head>
   <body>
     <strictd-registration></strictd-registration>
-
     <!-- <script type="text/javascript" src="https://js.squareup.com/v2/paymentform"></script> -->
-    <script src='https://www.google.com/recaptcha/api.js?onload=recaptchaOnLoad&render=explicit' async defer></script>
-    <script>
-      function recaptchaOnLoad() {
-        window['registrationRef'].zone.run(() => {
-          window['registrationRef'].component.recaptchaOnload();
-        });
-      }
-    </script>
   </body>
 </html>

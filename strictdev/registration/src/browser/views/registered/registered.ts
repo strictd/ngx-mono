@@ -8,7 +8,7 @@ import { RegistrationService } from '../../../providers/registration-service';
 @Component({
   selector: 'registered-component',
   templateUrl: './registered.html',
-  styleUrls: [ './registered.sass'.toString() ]
+  styleUrls: [ './registered.sass' ]
 })
 
 export class RegisteredComponent implements AfterViewInit {

@@ -21,10 +21,10 @@ export class RecaptchaComponent implements OnInit, OnDestroy {
   @Output() resolved = new EventEmitter<boolean>();
   @Output() expired = new EventEmitter<boolean>();
 
+  ngZone: NgZone;
+
   constructor(_element: ElementRef, _ngZone: NgZone) {
-    window['registrationRef'] = { component: this, zone: _ngZone };
-    window['recaptchaResolved'] = this.recaptchaResolved.bind(this);
-    window['recaptchaExpired'] = this.recaptchaExpired.bind(this);
+    this.ngZone = _ngZone;
   }
 
   ngOnInit() {
@@ -33,9 +33,7 @@ export class RecaptchaComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    window['registrationRef'] = null;
-    window['recaptchaResolved'] = null;
-    window['recaptchaExpired'] = null;
+
   }
 
   registerRecaptchaOnload() {
@@ -43,20 +41,22 @@ export class RecaptchaComponent implements OnInit, OnDestroy {
       const params = {
         ...this.config,
         'sitekey': this.sitekey,
-        'callback': this.recaptchaResolved,
-        'expired-callback': this.recaptchaExpired
+        'callback': this.recaptchaResolved.bind(this),
+        'expired-callback': this.recaptchaExpired.bind(this)
       };
       grecaptcha.render('g-recaptcha', params);
     }
   }
   recaptchaResolved(evt) {
-    const t = window['registrationRef'].component;
-    t.resolved.emit(evt);
+    this.ngZone.run(() => {
+      this.resolved.emit(evt);
+    });
   }
 
   recaptchaExpired() {
-    const t = window['registrationRef'].component;
-    t.expired.emit(true);
+    this.ngZone.run(() => {
+      this.expired.emit(true);
+    });
   }
 
   recaptchaReset() {

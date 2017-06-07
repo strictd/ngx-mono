@@ -1,36 +1,30 @@
 # NGX-MONO
 # Strict Development Monorepo for Angular
 
+## Requirements
+- Node
+- NPM
+
 ## Quickstart
-### Clone Repo
-```bash
+- Clone Repo
+- Install NPM Modules
+- Checkout strictdev git branch
+- Navigate to strictdev/public_website
+- Run Clientside Dev server
+- Open Browser to <http://localhost:8080>
+
+```
 git clone https://github.com/strictd/ngx-mono.git
 cd ngx-mono
-```
-
-### Install NPM Modules
-Install node modules into root folder, everything uses the same versions
-```
 npm install
-```
-
-### enter strictdev/public_website project folder
-```bash
-cd strictdev/public_website
-```
-
-### Run Dev Server
-```bash
+git checkout strictdev
+cd strictdev
+cd public_website
 npm start
 ```
 
-### Show Website
-Open browser to <http://localhost:8080/>
-
-
 ## Adding NPM Modules
-only in the root directory do you add node_modules.
-When node_module folders exist in project directory node won't look above that project folder for any other modules.
+Make sure you are in the ngx-mono root before adding npm modules
 
 ```bash
 npm install mymodule --save-dev

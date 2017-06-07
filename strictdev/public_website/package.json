@@ -3,20 +3,20 @@
     "version": "1.0.0",
     "scripts": {
         "lint": "node ../../node_modules/tslint/bin/tslint --force \"src/**/*.ts\" --config ../../_scripts/tslint.json",
-
+        
         "dev": "node ../../node_modules/concurrently/src/main.js --kill-others \"npm run start\" \"npm run ionic\" ",
         "start": "npm run strictd-public:start",
         "build": "npm run strictd-public:build",
         "ionic": "npm run ionic:serve",
-        
+
         "strictd-public:publish": "npm run strictd-public:build",
         "strictd-public:start": "node ../../node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ../../_scripts/webpack-ng.js --env ./.env",
         "strictd-public:build": "node ../../node_modules/webpack/bin/webpack.js --progress --profile --bail --config ../../_scripts/webpack-ng.js --env ./.env",
         "strictd-public:clean": "node ../../node_modules/rimraf/bin.js dist/",
-        
+
         "ionic:prod": "npm run ionic:build:prod",
         "ionic:build:prod": "node ../../node_modules/@ionic/app-scripts/bin/ionic-app-scripts.js build --prod",
-        
+
         "ionic:build": "node ../../node_modules/@ionic/app-scripts/bin/ionic-app-scripts.js build",
         "ionic:serve": "node ../../node_modules/@ionic/app-scripts/bin/ionic-app-scripts.js serve",
         "ionic:build:android": "cordova build android",
@@ -62,9 +62,6 @@
             "locator": "ios"
         }
     ],
-    "dependencies": {
-        "cordova-android": "^6.2.3"
-    },
     "cordova": {
         "platforms": [
             "android"

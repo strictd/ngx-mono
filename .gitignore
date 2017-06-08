@@ -35,4 +35,5 @@ UserInterfaceState.xcuserstate
 bin/
 dist/
 build/
+package-lock.json
 

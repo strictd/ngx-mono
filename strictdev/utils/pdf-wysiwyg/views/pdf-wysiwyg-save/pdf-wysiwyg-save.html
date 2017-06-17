@@ -1,0 +1,11 @@
+<div *ngIf="!service.custLock" style="position: relative" class="col-md-4">
+  <span>Customer ID: </span>
+  <input [(ngModel)]="service.cust_id"/>
+  <button *ngIf="service.cust_id" type="button" (click)="autoFillForm()">Auto-Fill Data</button>
+</div>
+<div class="col-md-2">
+  <button *ngIf="service.allItems.length > 0" type="button" [disabled]="saveDisabled" (click)="saveInput()">Save Input</button>
+</div>
+<div class="col-md-2">
+  <span *ngIf="showSaved">Data has been saved</span>
+</div>

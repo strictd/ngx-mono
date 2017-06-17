@@ -1,0 +1,25 @@
+textarea {
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+  color: #333;
+  border: 0px;
+  resize: none;
+  white-space: nowrap;
+  overflow: scroll;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  box-shadow: none;
+  transform: none;
+  -moz-transform: none;
+}
+textarea:focus {
+  background-color: rgba(64, 64, 64, 0.3);
+  color: #000;
+}
+
+textarea {
+  display: block;
+  font-size: 15px;
+}

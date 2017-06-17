@@ -1,0 +1,44 @@
+<div class="background" [style.width]="(service.pixelWidth * viewScale) + 'px'" *ngIf="service.svg">
+  <img #imgRef class="svg" [src]="service.svg" [attr.width]="(service.pixelWidth * viewScale) + 'px'" (load)="resizeCanvas()" alt="" />
+</div>
+
+<div *ngIf="service.editable" class="overlay" [style.width]="(service.pixelWidth * service.viewScale) + 'px'">
+  <canvas #editCanvas class="canvas"
+    [attr.width]="(service.pixelWidth * viewScale) + 'px'"
+    (mousedown)="canvasEvent($event)" (mouseup)="canvasEvent($event)"
+    (mousemove)="canvasEvent($event)" (mouseout)="canvasEvent($event)"
+    (touchstart)="canvasEvent($event)" (touchmove)="canvasEvent($event)"
+    (touchend)="canvasEvent($event)" (touchcancel)="canvasEvent($event)"
+  ></canvas>
+</div>
+
+<div class="overlay pdf" [style.width]="(service.pixelWidth * viewScale)" *ngIf="service.displayMode === 'input' && service.allItems.length">
+  <ng-template ngFor let-f="$implicit" [ngForOf]="service.allItems" let-i="index">
+    <pdf-wysiwyg-textbox *ngIf="f.t === 'textbox'" [scale]="viewScale" [obj]="f.obj" [id]="f.id"
+        (itemChanged)="itemChanged($event, f)"
+        (itemFocused)="itemFocused($event, f)"
+        (itemLost)="itemLost($event, f)"
+    ></pdf-wysiwyg-textbox>
+
+    <pdf-wysiwyg-cross *ngIf="f.t === 'cross'" [scale]="viewScale" [obj]="f.obj" 
+        (itemClicked)="itemClicked($event, f)"
+    ></pdf-wysiwyg-cross>
+
+  </ng-template>
+</div>
+
+<pdf-wysiwyg-toolbox *ngIf="service.editable" class="print_hide" #toolbox
+    [pdfService]="service" (runDraw)="draw()"
+    (runClearCanvas)="clearCanvas()" (runMakePDF)="makePDF()"
+    (stopArrows)="stopArrows($event)"
+></pdf-wysiwyg-toolbox>
+
+<pdf-wysiwyg-layers #layerbox *ngIf="service.editable" class="print_hide"
+    [pdfService]="service" (runDraw)="draw()" (runSave)="saveStorage()"
+></pdf-wysiwyg-layers>
+
+<!-- <pdf-wysiwyg-save *ngIf="service.displayMode === 'input'" class="print_hide"
+    [pdfService]="service"
+></pdf-wysiwyg-save> -->
+
+<a #downloadTag id="downloadTag" target="_blank" class="print_hide"></a>

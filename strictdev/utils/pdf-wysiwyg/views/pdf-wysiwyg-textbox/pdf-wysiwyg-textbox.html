@@ -1,0 +1,12 @@
+<textarea rows="1"
+    [(ngModel)]="obj.txt"
+    (focus)="itemFocused.emit()" (blur)="itemLost.emit()"
+    (change)="itemChanged.emit(obj)"
+    [ngStyle]="htmlStyle"
+    [attr.maxlength]="obj.maxlength"
+    [attr.id]="id"
+    [attr.name]="id"
+    class="form-control"
+    [attr.required]="!!obj.required"
+>
+</textarea>

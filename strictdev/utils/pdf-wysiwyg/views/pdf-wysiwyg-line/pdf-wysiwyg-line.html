@@ -1,0 +1,21 @@
+<svg
+  [attr.width]="obj.w + obj.stroke + obj.pR + obj.pL + 1"
+  [attr.height]="obj.h + obj.stroke + obj.pT + obj.pB + 1"
+  [ngStyle]="{
+      'top.px': obj.y - (obj.h / 2) - (obj.stroke / 2) - obj.pT,
+      'left.px': obj.x - (obj.w / 2) - (obj.stroke / 2) - obj.pL,
+      'width.px': obj.w + obj.stroke + obj.pR + obj.pL + 1,
+      'height.px': obj.h + obj.stroke + obj.pT + obj.pB + 1,
+      'padding-top.px': obj.pT,
+      'padding-right.px': obj.pR,
+      'padding-bottom.px': obj.pB,
+      'padding-left.px': obj.pL
+    }">
+  <line *ngIf="obj.selected"
+      [attr.x1]="obj.stroke / 2"
+      [attr.y1]="obj.stroke / 2" 
+      [attr.x2]="obj.w + (obj.stroke / 2)"
+      [attr.y2]="obj.h + (obj.stroke / 2)"
+      [attr.stroke-width]="obj.stroke"
+      stroke="black" />
+</svg>

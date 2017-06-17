@@ -1,0 +1,31 @@
+<div #layersPanel [draggable]="true" [draggable-position]="draggablePosition" class="info_window row print_hide"
+    style="cursor: pointer;">
+  <div class="header draggable_handlebar">Layers
+    <div style="float: right;" (click)="showLayers = !showLayers">
+      <i class="glyphicon"
+          [class.glyphicon-triangle-top]="!showLayers"
+          [class.glyphicon-triangle-bottom]="showLayers"
+      ></i>
+    </div>   
+    <div class="toolbox" style="float: right;"
+        (click)="setDraggablePosition()">
+      <i class="fa"
+          [class.fa-arrows-v]="draggablePosition === 'fixed'"
+          [class.fa-lock]="draggablePosition === 'absolute'"
+      ></i>
+    </div>
+  </div>
+  <div class="content" *ngIf="showLayers">
+    <div class="layer_item"
+         *ngFor="let layer of service.allItems; let i = index; let first = first;
+                 let last = last"
+        [class.highlight]="service.activeItem == layer"
+        (click)="selectItem(layer)">
+      {{ layer.id }} [{{ layer.t }}]
+      <i class="glyphicon pull-right" [class.glyphicon-triangle-bottom]="!last"
+          (click)="layerDown(i, $event)"></i>
+      <i class="glyphicon pull-right" [class.glyphicon-triangle-top]="!first"
+          (click)="layerUp(i, $event)"></i>
+    </div>
+  </div>
+</div>

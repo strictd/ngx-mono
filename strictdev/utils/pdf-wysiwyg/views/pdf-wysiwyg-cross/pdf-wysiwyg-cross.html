@@ -1,0 +1,21 @@
+<svg
+  (click)="itemClicked.emit();"
+  [attr.width]="w + stroke + pR + pL + 1"
+  [attr.height]="h + stroke + pT + pB + 1"
+  [ngStyle]="htmlStyle">
+
+  <line *ngIf="obj.selected"
+      [attr.x1]="stroke / 2"
+      [attr.y1]="stroke / 2" 
+      [attr.x2]="w + (stroke / 2)"
+      [attr.y2]="h + (stroke / 2)"
+      [attr.stroke-width]="stroke"
+      stroke="black" />
+  <line *ngIf="obj.selected"
+      [attr.x1]="w + (stroke / 2)"
+      [attr.y1]="stroke / 2"
+      [attr.x2]="stroke / 2"
+      [attr.y2]="h + (stroke / 2)"
+      [attr.stroke-width]="stroke"
+      stroke="black" />
+</svg>

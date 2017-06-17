@@ -1,0 +1,56 @@
+.btn {
+  padding: 4px 8px;
+  font-size: 10px;
+}
+
+.info_window {
+  position: fixed;
+  left: 30px;
+  top: 30px;
+  border: 1px solid black;
+  border-left: 2px solid black;
+  width: 215px;
+  font-size: 10px;
+  background-color: #fff;
+  text-align: left;
+  z-index: 99;
+
+}
+.info_window .header {
+  width: 100%;
+  padding: 4px;
+  font-weight: 800;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  background-color: #CCC;
+}
+.info_window .content {
+  padding: 4px;
+}
+.info_window .footer {
+  padding: 4px;
+  display: inline-block;
+  height: 100%;
+  text-align: right;
+  width: inherit;
+  vertical-align: bottom;  
+}
+
+.info_window .header, .info_window .content, .info_window .footer {
+  clear: left;
+}
+.info_window .toolbox {
+  border:1px solid black;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 14px;
+  float: left;
+  margin-bottom: 4px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.info_window .toolbox.active {
+  background-color: #33FF33;
+}

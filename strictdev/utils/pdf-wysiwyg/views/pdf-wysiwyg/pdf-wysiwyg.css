@@ -1,0 +1,55 @@
+.canvas {
+  border: 1px solid black;
+}
+
+.btn {
+  padding: 4px 8px;
+  font-size: 10px;
+}
+
+.overlay, .background {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.background {
+  z-index: -1;
+}
+.overlay {
+  z-index: 1;
+}
+.full {
+  width: 60%;
+}
+
+
+@media print {
+  body { margin-left: 50mm; padding: 0px; }
+
+  .command_buttons {
+    display: none;
+  }
+  input {
+    border: 0px;
+    font-size: 10pt;
+    background-color: white;
+  }
+  .print_hide {
+    display: none;
+  }
+  .vin {
+    font-size: 12pt;
+    letter-spacing: 12px;
+    word-spacing: 12px;
+    font-weight: bold;
+  }
+
+  .car-canvas .car-div {
+    top: 0px;
+  }
+
+  .overlay { top: 0px; overflow: visable; }
+  .canvas { border: 0px; }
+  .background { overflow: visable; }
+}
+

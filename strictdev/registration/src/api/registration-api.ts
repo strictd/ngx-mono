@@ -50,12 +50,20 @@ const _routes = [
 // import * as REGISTRATION_MYSQL from '../controllers/registration-mysql';
 // import * as GoogleSheets from '../controllers/google-sheets.v4';
 import * as CacheSheets from '../controllers/cache-sheets';
+import * as CachePdfWysiwyg from '../../../utils/pdf-wysiwyg/controllers/pdf-wysiwyg-cache';
 
 const _sources = [
   {
     'store_id': 'strictdev',
     'registration': {
       'sheets': CacheSheets
+    },
+    'pdf_wysiwyg': {
+      'forms': 'dev_dsm.pdf_wysiwyg_forms',
+      'versions': 'dev_dsm.pdf_wysiwyg_versions',
+      'data': 'dev_dsm.pdf_wysiwyg_data',
+      'saveMethod': 'historical', // or 'overwrite',
+      'db': CachePdfWysiwyg
     }
   }
 ];

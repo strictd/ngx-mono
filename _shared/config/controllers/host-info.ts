@@ -23,9 +23,9 @@ namespace HostInfo {
   export function getIdentFromHost(req: Request) {
     const host = getHost(req);
     switch (host) {
-      case 'localhost:8080': return 'strictdev';
+      case 'localhost:8080': return null;
     }
-    return 'strictdev';
+    return null;
   }
 
 }

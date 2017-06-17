@@ -12,6 +12,16 @@ import minimist = require('minimist');
 import compression = require('compression');
 const debug = require('debug')('api');
 
+export function APIErrorHandler(app: express.Application, settings?: IAPISettings) {
+  app.use((err, req, res, next) => {
+    if (err.name === 'UnauthorizedError') {
+      res.status(401).send(err.message);
+    } else {
+      res.status(500).send('Something broke!');
+    }
+  });
+}
+
 export function APIConfig(app: express.Application, settings?: IAPISettings) {
   const args: any = minimist(process.argv);
 
@@ -84,7 +94,7 @@ export function API(app: express.Application, settings?: IAPISettings) {
     // Start SSL Server
     const sslserver = https_createServer(ssl_cert, app);
     sslserver.listen(ssl_port, ssl_ip, (err) => {
-      debug('Created Listener on https://' + ssl_ip + ':' + ssl_port);
+      console.log('Created Listener on https://' + ssl_ip + ':' + ssl_port);
     });
 
     sslserver.on('error', (err) => onError(err, ssl_port));
@@ -100,7 +110,7 @@ export function API(app: express.Application, settings?: IAPISettings) {
 
     const server = http_createServer(app);
     server.listen(port, ip, (err) => {
-      debug('Created Listener on http://' + ip + ':' + port);
+      console.log('Created Listener on http://' + ip + ':' + port);
     });
 
     server.on('connect', () => onConnection());

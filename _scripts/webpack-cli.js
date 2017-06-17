@@ -16,8 +16,11 @@ const path = require('path'),
       banner = args.banner || dotenv.BANNER || false
 ;
 
-const CopyWebpackPlugin = require('copy-webpack-plugin'),
-      UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+      // ButternutWebpackPlugin = require('butternut-webpack-plugin').default;
+      // UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+      // webpackUglifyJsPlugin = require('webpack-uglify-js-plugin');
+      // ClosureCompilerPlugin = require('webpack-closure-compiler');
 
 console.log('Root Dir: ', rootDir);
 console.log('Input File: ', process.argv[2]);
@@ -139,8 +142,17 @@ module.exports = function makeWebpackConfig() {
     // Reference: http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
     // Minify all javascript, switch loaders to minimizing mode  
     config.plugins.push(
-      // new webpack.optimize.UglifyJsPlugin({sourceMap: false, mangle: { keep_fnames: true }})
-      new UglifyJSPlugin({sourceMap: true, mangle: { keep_fnames: true }})
+      // new ButternutWebpackPlugin({})
+      // new webpack.optimize.UglifyJsPlugin({ minimize: true, sourceMap: false })
+      // new UglifyJSPlugin({sourceMap: false, mangle: { keep_fnames: true }})
+      /*new ClosureCompilerPlugin({
+        compiler: {
+          compilation_level: 'SIMPLE',
+          language_in: 'ECMASCRIPT6',
+          language_out: 'ECMASCRIPT5',
+          output_wrapper: '(function(){\n%output%\n}).call(this)'
+        }
+      })*/
     );
   }
 

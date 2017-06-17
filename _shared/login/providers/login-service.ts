@@ -13,6 +13,7 @@ import { ConfigApp } from '../../config/config.app';
 import { ProfileApp } from '../../config/profile.app';
 
 import 'rxjs/add/operator/share';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class LoginService {
@@ -27,7 +28,7 @@ export class LoginService {
     _madame.setServer('main', _config.madameService());
   }
 
-  doLogin(login_info: ILogin): Promise<ILoginResponse> {
+  doLogin(login_info: ILogin): Promise<string> {
     return new Promise((resolve, reject) => {
       this.madame.
           post('sessions/create', login_info).
@@ -40,7 +41,7 @@ export class LoginService {
           LoginCmd._loggedInObserver.next(dataSet.id_token);
           resolve(dataSet.id_token);
         } else {
-          reject({message: 'No Token Returned, Please Refresh. Sorry!'});
+          reject('');
         }
       });
     });

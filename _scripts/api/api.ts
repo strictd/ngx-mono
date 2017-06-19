@@ -29,9 +29,32 @@ export function APIConfig(app: express.Application, settings?: IAPISettings) {
   if (args.env) { dotenv = require('dotenv').config({ path: args.env }); }
 
   // mount logger
-  if (parseBool(args.logger || dotenv.LOGGER || settings.logger || false)) {
-    app.use(logger('dev'));
+  const loggerFormat = args.logger || dotenv.LOGGER || settings.logger || '';
+  if (loggerFormat) { app.use(logger(loggerFormat)); }
+
+
+
+  if (app.locals.redisDB) {
+    // Redis Session Storage
+    const session = require('express-session');
+    const RedisStore = require('connect-redis')(session);
+    const redisSecret = process.env.api_settings.session_secret || Math.random().toString(36).substring(7);
+    app.use(session({
+        store: new RedisStore({
+          client: app.locals.redisDB.redis
+        }),
+        secret: redisSecret
+    }));
+
+    // Concurrent Connections
+    const concurrentLimit = require('./redis/concurrent-limit');
+    app.use(concurrentLimit({client: app.locals.redisDB.redis, ttl: 60, capacity: 1 }));
+
+    // Rate Limiting Connections
+    const rateLimit = require('./redis/rate-limit');
+    app.use(rateLimit({client: app.locals.redisDB.redis, replenish_rate: 3, burst: 1 }));
   }
+
 
   // CORS - Whitelisting
   if (parseBool(args.use_cors || dotenv.USE_CORS || settings.use_cors || true)) {
@@ -75,18 +98,18 @@ export function API(app: express.Application, settings?: IAPISettings) {
   if (args.env) { dotenv = require('dotenv').config({ path: args.env }); }
 
   const http_server = parseBool(args.http_server || dotenv.HTTP_SERVER || settings.http_server || true),
-        ssl_server = parseBool(args.ssl_server || dotenv.SSL_SERVER || settings.ssl_server || false)
+        https_server = parseBool(args.https_server || dotenv.HTTPS_SERVER || settings.https_server || false)
   ;
 
   // HTTPS Server
-  if (ssl_server) {
+  if (https_server) {
 
     // HTTPS Settings
-    const ssl_ip = args.ssl_ip || dotenv.SSL_IP || settings.ssl_ip || '0.0.0.0';
-    const ssl_port = normalizePort(args.ssl_port || dotenv.SSL_PORT || settings.ssl_port || 3443);
+    const ssl_ip = args.https_ip || dotenv.HTTPS_IP || settings.https_ip || '0.0.0.0';
+    const ssl_port = normalizePort(args.https_port || dotenv.HTTPS_PORT || settings.https_port || 3443);
     const ssl_cert = {
-      key: readFileSync(args.ssl_key || dotenv.SSL_KEY || settings.ssl_key),
-      cert: readFileSync(args.ssl_cert || dotenv.SSL_CERT || settings.ssl_cert)
+      key: readFileSync(args.https_key || dotenv.HTTPS_KEY || settings.https_key),
+      cert: readFileSync(args.https_cert || dotenv.HTTPS_CERT || settings.https_cert)
     };
     app.set('sslport', ssl_port);
     app.set('sslip', ssl_ip);
@@ -103,8 +126,8 @@ export function API(app: express.Application, settings?: IAPISettings) {
 
   if (http_server) {
     // Start HTTP if SSL isn't active or on non-conflicting ports
-    const ip = args.ip || process.env.IP || dotenv.IP || settings.ip || '0.0.0.0';
-    const port = normalizePort(args.port || process.env.PORT || dotenv.PORT || settings.port || 3080);
+    const ip = args.ip || process.env.IP || dotenv.IP || settings.http_ip || '0.0.0.0';
+    const port = normalizePort(args.port || process.env.PORT || dotenv.PORT || settings.http_port || 3080);
     app.set('port', port);
     app.set('ip', ip);
 

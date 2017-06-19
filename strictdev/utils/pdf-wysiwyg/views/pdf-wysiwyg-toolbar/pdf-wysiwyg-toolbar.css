@@ -39,3 +39,18 @@
 .info_window .header, .info_window .content, .info_window .footer {
   clear: left;
 }
+.toolbar {
+  border:1px solid black;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 14px;
+  float: left;
+  margin-bottom: 4px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.toolbar.active {
+  background-color: #33FF33;
+}

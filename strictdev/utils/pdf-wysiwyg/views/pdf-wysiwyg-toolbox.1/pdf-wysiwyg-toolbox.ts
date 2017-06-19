@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, ViewChild, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, Input } from '@angular/core';
 
 import { IPdfWysiwygItem } from '../../models/i-pdf-wysiwyg-item';
 
@@ -13,20 +13,12 @@ import { ToolUtils } from '../../providers/tool-utils';
 export class PdfWysiwygToolbox implements OnInit {
   @ViewChild('toolPanel') toolPanel;
   @ViewChild('transferPanel') transferPanel;
-  @Output() runDraw = new EventEmitter();
-  @Output() runClearCanvas = new EventEmitter();
-  @Output() runMakePDF = new EventEmitter();
-  @Output() stopArrows = new EventEmitter();
   @Input('pdfService') pdfService: any;
 
   service: PdfWysiwygService;
   draggablePosition = 'fixed';
   settingItem: IPdfWysiwygItem = null;
-  boxStyle = {
-    position: 'fixed',
-    top: '14px',
-    left: '300px'
-  };
+
   showTools = true;
   showDisplays = true;
   showSize = true;
@@ -51,23 +43,23 @@ export class PdfWysiwygToolbox implements OnInit {
 
   ngOnInit() {
     this.service = this.pdfService || this.globalPdfService;
-/*
+
     if (this.service.toolType) {
       this.settingItem = new IPdfWysiwygItem({
         t: this.service.toolType,
         obj: this.service.toolboxDefaults[this.service.toolType]
       });
     }
-*/
+
     this.service.itemChanged.subscribe(item => {
-  //    if (item) {
+      if (item) {
         this.settingItem = item;
-  //    } else {
-  //      this.settingItem = new IPdfWysiwygItem({
-  //        t: this.service.toolType,
-  //        obj: this.service.toolboxDefaults[this.service.toolType]
-  //      });
-  //    }
+      } else {
+        this.settingItem = new IPdfWysiwygItem({
+          t: this.service.toolType,
+          obj: this.service.toolboxDefaults[this.service.toolType]
+        });
+      }
 
       this.toolChanged(this.settingItem.t);
     });
@@ -113,20 +105,20 @@ export class PdfWysiwygToolbox implements OnInit {
   }
 
   draw() {
-    this.runDraw.emit();
+    this.service.draw();
   }
 
   copyItem(item: IPdfWysiwygItem) {
     if (this.service.displayMode !== 'edit') { return; }
 
     this.service.copyItem(item);
-    this.draw();
+    this.service.draw();
   }
   removeItem(item: IPdfWysiwygItem) {
     if (this.service.displayMode !== 'edit') { return; }
 
     this.service.removeItem(item);
-    this.draw();
+    this.service.draw();
   }
 
   setTool(t) {
@@ -136,15 +128,15 @@ export class PdfWysiwygToolbox implements OnInit {
       this.service.toolType = t;
       this.toolChanged(t);
     }
-    this.draw();
+    this.service.draw();
   }
   setDisplay(t) {
     this.service.showInfo = t;
-    this.draw();
+    this.service.draw();
   }
   setEditMode() {
     this.service.displayMode = 'edit';
-    this.draw();
+    this.service.draw();
   }
   setInputMode() {
     this.runClearCanvas.emit();

@@ -200,7 +200,7 @@ export class IPdfWysiwygTextbox {
           pT = this.pT * scale,
           fontSize = this.fontSize * scale,
           spacing = this.spacing * scale;
-          
+
     let opts: any = { width: w - pL - pR };
     if (this.options) { opts = Object.assign({}, opts, this.options); }
     opts.align = this.alignment;

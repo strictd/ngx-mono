@@ -1,13 +1,13 @@
 export class IAPISettings {
-  ip: string;
-  port: number;
-  http_server?: boolean;
+  http_server?: boolean;  
+  http_ip?: string;
+  http_port?: number;
 
-  ssl_ip?: string;
-  ssl_port?: number;
-  ssl_server?: boolean;
-  ssl_key?: string;
-  ssl_cert?: string;
+  https_server?: boolean;
+  https_ip?: string;
+  https_port?: number;
+  https_key?: string;
+  https_cert?: string;
 
   show_sql?: boolean;
 
@@ -21,7 +21,9 @@ export class IAPISettings {
   jade?: boolean;
   jade_views?: string;
 
-  logger?: boolean;
+  logger?: string;
 
   compression?: boolean;
+
+  session_secret?: string;
 }

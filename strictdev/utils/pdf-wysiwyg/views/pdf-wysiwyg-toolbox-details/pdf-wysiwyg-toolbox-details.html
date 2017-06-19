@@ -1,0 +1,127 @@
+<div #toolDetailsPanel [draggable]="true" [draggable-position]="draggablePosition"
+     class="info_window row print_hide">
+
+  <div class="header draggable_handlebar">Details
+    <div style="float: right;cursor: pointer;"
+        (click)="showDisplays = !showDisplays">
+      <i class="glyphicon"
+          [class.glyphicon-triangle-top]="!showDisplays"
+          [class.glyphicon-triangle-bottom]="showDisplays"
+      ></i>
+    </div>
+  </div>
+
+  <ng-container *ngIf="service.displayMode === 'edit'">
+    <div class="content" *ngIf="settingItem">
+      <div style="clear:left;float: left;">
+        ID: <input type="text" style="width: 100%"
+            (focus)="stopArrows.emit(true)" (blur)="stopArrows.emit(false)"
+            [(ngModel)]="settingItem.id"
+            (change)="draw()"
+        />
+      </div>
+      <div style="clear:left;float: left;"
+          *ngIf="showSampleText">
+        Sample Text:<br />
+        <input type="text" style="width: 100%"
+            (focus)="stopArrows.emit(true)" (blur)="stopArrows.emit(false)"
+            [(ngModel)]="settingItem.obj.txt"
+            (change)="draw()"
+        />
+      </div>
+      <div style="clear:left;float: left;"
+          *ngIf="showRequired">
+        Required<br />
+        <input type="checkbox"
+            [(ngModel)]="settingItem.obj.required"
+            (change)="draw()"
+            value="true"
+        />
+      </div>
+      <div style="clear:left;float: left;"
+          *ngIf="showFont">
+        Font Size / Style:<br />
+        <input type="number" style="width: 40px; float: left;"
+            (focus)="stopArrows.emit(true)" (blur)="stopArrows.emit(false)"
+            [(ngModel)]="settingItem.obj.fontSize"
+            (change)="draw()"
+        />
+
+        <select style="width: auto; float: left;"
+            (focus)="stopArrows.emit(true)" (blur)="stopArrows.emit(false)"
+            [(ngModel)]="settingItem.obj.fontStyle"
+            (change)="draw()"
+        >
+          <option value="Courier">Courier</option>
+          <option value="Helvetica">Helvetica</option>
+          <option value="Times">Times</option>
+        </select>
+      </div>
+      <div style="clear:left;float: left;"
+          *ngIf="showAlignment">
+        Alignment:<br />
+        <select style="width: 100%"
+            (focus)="stopArrows.emit(true)" (blur)="stopArrows.emit(false)"
+            [(ngModel)]="settingItem.obj.alignment"
+            (change)="draw()"
+        >
+          <option value="left">Left</option>
+          <option value="center">Center</option>
+          <option value="right">Right</option>
+        </select>
+      </div>
+      <div style="clear:left;float: left;"
+          *ngIf="showStroke">
+        Stoke<br />
+        <input type="number" maxlength="3" style="width: 40px;"
+            (focus)="stopArrows.emit(true)" (blur)="stopArrows.emit(false)"
+            [(ngModel)]="settingItem.obj.stroke"
+            (change)="draw()"
+        />
+      </div>
+      <div style="clear:left;float: left;"
+          *ngIf="showSelected">
+        Selected<br />
+        <input type="checkbox"
+            [(ngModel)]="settingItem.obj.selected"
+            (change)="draw()"
+            value="true"
+        />
+      </div>
+      <div style="clear:left;float: left;"
+          *ngIf="showSpacing">
+        Letter Spacing<br />
+        <input type="number" maxlength="3" style="width: 65px;" step="0.01"
+            (focus)="stopArrows.emit(true)" (blur)="stopArrows.emit(false)"
+            [(ngModel)]="settingItem.obj.spacing"
+            (change)="draw()"
+        />
+      </div>
+      <div style="clear:left;float: left;"
+          *ngIf="showMaxlength">
+        Max Length<br />
+        <input type="number" maxlength="5" style="width: 65px;" step="1"
+            (focus)="stopArrows.emit(true)" (blur)="stopArrows.emit(false)"
+            [(ngModel)]="settingItem.obj.maxlength"
+            (change)="draw()"
+        />
+      </div>
+      <div style="clear:left;float: left;"
+          *ngIf="showMaxlength">
+        Text Transform<br />
+        <select style="width: 100%"
+            (focus)="stopArrows.emit(true)" (blur)="stopArrows.emit(false)"
+            [(ngModel)]="settingItem.obj.textTransform"
+            (change)="draw()"
+        >
+          <option value="inherit">Inherit</option>
+          <option value="capitalize">Capitalize</option>
+          <option value="uppercase">Uppercase</option>
+          <option value="lowercase">Lowercase</option>
+          <option value="none">None</option>
+        </select>
+      </div>
+    </div>
+  </ng-container>
+
+</div>

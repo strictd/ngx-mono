@@ -2,24 +2,10 @@
 
 import { readFileSync } from 'fs';
 const api_settings = {
-  http_server: true,
-  ip: '0.0.0.0',
-  port: 9001,
-
-  ssl_server: false,
-  // ssl_ip: '0.0.0.0',
-  // ssl_port: 3443,
-  // ssl_key: process.cwd() + '/server.key',
-  // ssl_cert: process.cwd() + '/server.crt',
-
-  use_cors: true,
-  whitelist: '*',
-  logger: true,
-  jade: false,
-  jade_views: './views',
+  http_port: 9001,
+  logger: 'dev',
   bodyparser_json: {},
-  bodyparser_urlencoded: {extended: true},
-  bodyparser_text: false
+  bodyparser_urlencoded: {extended: true}
 };
 
 

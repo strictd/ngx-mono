@@ -18,7 +18,10 @@ var highlight = require('highlight.js');
 var marked = require('marked');
 var yaml = require('js-yaml');
 var path = require('path');
-var relPath = path.relative('./', process.env.INIT_CWD);
+var minimist = require('minimist');
+var args = minimist(process.argv);
+var docPath = (args.docs) ? path.resolve(process.env.INIT_CWD, args.docs) : process.env.INIT_CWD;
+var relPath = path.relative('./', docPath);
 var sourcePath = '../_shared/slate-docs/';
 
 var renderer = new marked.Renderer();

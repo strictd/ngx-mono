@@ -1,6 +1,29 @@
 import { OnInit, Component, Input, Output, EventEmitter } from '@angular/core';
 
+import { PdfWysiwygService } from '../../providers/pdf-wysiwyg-service';
 import { IPdfWysiwygTextbox } from '../../models/i-pdf-wysiwyg-textbox';
+
+@Component({
+  selector: 'pdf-wysiwyg-toolbar-textbox',
+  template: `<div class="toolbar" [class.active]="service.toolType === 'textbox'"
+          (click)="setTool('textbox')">
+        <i class="glyphicon glyphicon-text-width"></i>
+      </div>`
+})
+export class PdfWysiwygToolbarTextbox implements OnInit {
+  @Input('pdfService') pdfService: any;
+  service: PdfWysiwygService;
+
+  constructor(private globalPdfService: PdfWysiwygService) {}
+
+  ngOnInit() {
+    this.service = this.pdfService || this.globalPdfService;
+  }
+
+  activateTool() {
+    this.service.setTool('textbox');
+  }
+}
 
 @Component({
   selector: 'pdf-wysiwyg-textbox',

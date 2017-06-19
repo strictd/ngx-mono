@@ -12,8 +12,10 @@ import { PdfWysiwygForms } from './views/pdf-wysiwyg-forms/pdf-wysiwyg-forms';
 import { PdfWysiwygNumCircle } from './views/pdf-wysiwyg-num-circle/pdf-wysiwyg-num-circle';
 import { PdfWysiwygLayers } from './views/pdf-wysiwyg-layers/pdf-wysiwyg-layers';
 import { PdfWysiwygLine } from './views/pdf-wysiwyg-line/pdf-wysiwyg-line';
+import { PdfWysiwygToolbar } from './views/pdf-wysiwyg-toolbar/pdf-wysiwyg-toolbar';
 import { PdfWysiwygToolbox } from './views/pdf-wysiwyg-toolbox/pdf-wysiwyg-toolbox';
-import { PdfWysiwygTextbox } from './views/pdf-wysiwyg-textbox/pdf-wysiwyg-textbox';
+import { PdfWysiwygToolboxDetails } from './views/pdf-wysiwyg-toolbox-details/pdf-wysiwyg-toolbox-details';
+import { PdfWysiwygTextbox, PdfWysiwygToolbarTextbox } from './views/pdf-wysiwyg-textbox/pdf-wysiwyg-textbox';
 import { PdfWysiwygTransfer } from './views/pdf-wysiwyg-transfer/pdf-wysiwyg-transfer';
 import { PdfWysiwygSave } from './views/pdf-wysiwyg-save/pdf-wysiwyg-save';
 
@@ -32,7 +34,10 @@ import { ToolUtils } from './providers/tool-utils';
     PdfWysiwygForms,
     PdfWysiwygLayers,
     PdfWysiwygTransfer,
+    PdfWysiwygToolbar,
+    PdfWysiwygToolbarTextbox,
     PdfWysiwygToolbox,
+    PdfWysiwygToolboxDetails,
     PdfWysiwygSave,
 
     PdfWysiwygCross,
@@ -46,7 +51,10 @@ import { ToolUtils } from './providers/tool-utils';
     PdfWysiwygForms,
     PdfWysiwygLayers,
     PdfWysiwygTransfer,
+    PdfWysiwygToolbar,
+    PdfWysiwygToolbarTextbox,
     PdfWysiwygToolbox,
+    PdfWysiwygToolboxDetails,
     PdfWysiwygSave,
 
     PdfWysiwygCross,

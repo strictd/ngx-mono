@@ -87,5 +87,5 @@ export class ToolUtils {
     const fixedVal = (Math.ceil(value / toNearest) * toNearest).toFixed(fixed);
     return parseFloat(fixedVal);
   }
-    
+
 }

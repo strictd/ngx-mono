@@ -55,7 +55,7 @@ export class IPdfWysiwygCross {
           pB = this.pB * scale,
 
           stroke = this.stroke * scale,
-          
+
           halfW = (w / 2),
           halfH = (h / 2),
           lineW = stroke || 1,

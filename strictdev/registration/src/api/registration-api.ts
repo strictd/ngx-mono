@@ -3,23 +3,15 @@
 import { readFileSync } from 'fs';
 const api_settings = {
   http_server: true,
-  ip: '0.0.0.0',
-  port: 14001,
+  http_ip: '0.0.0.0',
+  http_port: 14001,
 
-  ssl_server: false,
-  // ssl_ip: '0.0.0.0',
-  // ssl_port: 3443,
-  // ssl_key: process.cwd() + '/server.key',
-  // ssl_cert: process.cwd() + '/server.crt',
+  logger: 'dev',
 
-  use_cors: true,
-  whitelist: '*',
-  logger: true,
-  jade: false,
-  jade_views: './views',
   bodyparser_json: {},
   bodyparser_urlencoded: {extended: true},
-  bodyparser_text: false
+
+  session_secret: 'change me'
 };
 process.env.api_settings = api_settings;
 
@@ -73,6 +65,13 @@ const _sources = [
 import * as express from 'express';
 import { API, APIConfig } from '../../../../_scripts/api';
 const app = express();
+
+// add Redis Server Support
+/*
+import { DB as RedisDB } from '../../../db/redis_example';
+RedisDB.config = { ip: '127.0.0.1' };
+app.locals.redisDB = RedisDB;
+*/
 
 // add database sources to app
 app.locals.sources = _sources;

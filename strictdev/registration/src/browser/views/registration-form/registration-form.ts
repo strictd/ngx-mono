@@ -16,7 +16,7 @@ export class RegistrationFormComponent implements OnInit {
     this.service = new PdfWysiwygService(_service.madame);
     // this.service.inchWidth = 8.055;
     // this.service.inchHeight = 5.555;
-    this.service.editable = true;
+    this.service.editable = false;
     this.service.ident = 'registration';
 
 

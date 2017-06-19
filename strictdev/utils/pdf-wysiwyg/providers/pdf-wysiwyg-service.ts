@@ -14,6 +14,8 @@ import { IPdfWysiwygCross } from '../models/i-pdf-wysiwyg-cross';
 import { IPdfWysiwygLine } from '../models/i-pdf-wysiwyg-line';
 import { IPdfWysiwygEllipse } from '../models/i-pdf-wysiwyg-ellipse';
 
+import { ToolUtils } from './tool-utils';
+
 @Injectable()
 export class PdfWysiwygService implements OnDestroy {
 
@@ -78,7 +80,6 @@ export class PdfWysiwygService implements OnDestroy {
   };
 
   madame: MadameAuth;
-
 
   constructor(_madame: MadameAuth) {
     this.madame = _madame;
@@ -182,6 +183,14 @@ export class PdfWysiwygService implements OnDestroy {
     }
   }
 
+  public setTool(t) {
+    if (this.toolType === t) {
+      this.changeItem(null);
+    } else {
+      this.toolType = t;
+    }
+  }
+
   public clearDrag() {
     this.isDrag = this.dragTL = this.dragTR = this.dragBL = this.dragBR = this.dragWhole = false;
   }
@@ -231,4 +240,52 @@ export class PdfWysiwygService implements OnDestroy {
     }
     return true;
   }
+
+
+  clearCanvas() {
+    if (this.displayMode !== 'edit') { return; }
+
+    if (this.editable) {
+      this.ctx.clearRect(0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
+    }
+  }
+
+  // Draw all items in stack
+  drawAll() {
+    if (this.displayMode !== 'edit') { return; }
+
+    this.clearCanvas();
+
+    const rLen = this.allItems.length;
+    for (let r = rLen - 1; r > -1; r--) {
+      const item = ToolUtils.cleanCoords(this.allItems[r].obj);
+      let active = false;
+
+      if (this.activeItem &&
+          this.activeItem.id === this.allItems[r].id
+      ) {
+        active = true;
+      }
+
+
+      if (typeof item.draw === 'function') {
+        item.draw(this.ctx, active, this.viewScale, this.showInfo);
+      }
+    }
+  }
+
+  /*drawCircle(r) {
+    if (this.displayMode !== 'edit') { return; }
+
+    const item = this.allItems[r].obj;
+
+    if (this.allItems[r].id === this.allItems.id) {
+      this.ctx.fillStyle = 'rgba(255, 30, 30, 0.25)';
+    } else {
+      this.ctx.fillStyle = 'rgba(30, 255, 30, 0.25)';
+    }
+    this.ctx.beginPath();
+    this.ctx.arc(item.x, item.y, item.w / 2, 0, 2 * Math.PI);
+    this.ctx.fill();
+  }*/  
 }

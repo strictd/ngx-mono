@@ -27,15 +27,27 @@
   </ng-template>
 </div>
 
+<pdf-wysiwyg-toolbar *ngIf="service.editable" class="print_hide" #toolbar
+  [pdfService]="service" (runDraw)="draw()"
+>
+  <pdf-wysiwyg-toolbar-textbox [pdfService]="service" (runDraw)="draw()"></pdf-wysiwyg-toolbar-textbox>
+</pdf-wysiwyg-toolbar>
+
 <pdf-wysiwyg-toolbox *ngIf="service.editable" class="print_hide" #toolbox
     [pdfService]="service" (runDraw)="draw()"
     (runClearCanvas)="clearCanvas()" (runMakePDF)="makePDF()"
     (stopArrows)="stopArrows($event)"
 ></pdf-wysiwyg-toolbox>
 
+<pdf-wysiwyg-toolbox-details *ngIf="service.editable" class="print_hide" #toolboxDetails
+    [pdfService]="service" (runDraw)="draw()"
+    (stopArrows)="stopArrows($event)"
+></pdf-wysiwyg-toolbox-details>
+
 <pdf-wysiwyg-layers #layerbox *ngIf="service.editable" class="print_hide"
     [pdfService]="service" (runDraw)="draw()" (runSave)="saveStorage()"
 ></pdf-wysiwyg-layers>
+
 
 <!-- <pdf-wysiwyg-save *ngIf="service.displayMode === 'input'" class="print_hide"
     [pdfService]="service"

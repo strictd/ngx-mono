@@ -131,47 +131,14 @@ export class PdfWysiwyg implements OnInit, AfterViewInit {
 
   draw() {
     if (this.service.displayMode === 'edit') {
-      this.drawAll();
+      this.service.drawAll();
     }
     // console.log(this.data);
     this.saveStorage();
   }
 
 
-  clearCanvas() {
-    if (this.service.displayMode !== 'edit') { return; }
-
-    if (this.service.editable) {
-      this.service.ctx.clearRect(0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
-    }
-  }
-
-  // Draw all items in stack
-  drawAll() {
-    if (this.service.displayMode !== 'edit') { return; }
-
-    this.clearCanvas();
-
-    const rLen = this.data.length;
-    for (let r = rLen - 1; r > -1; r--) {
-      const item = ToolUtils.cleanCoords(this.data[r].obj);
-      let active = false;
-
-      if (this.item &&
-          this.item.id === this.data[r].id
-      ) {
-        active = true;
-      }
-
-
-      if (typeof item.draw === 'function') {
-        item.draw(this.service.ctx, active, this.service.viewScale, this.service.showInfo);
-      }
-    }
-  }
-
-
-  drawCircle(r) {
+  /*drawCircle(r) {
     if (this.service.displayMode !== 'edit') { return; }
 
     const item = this.data[r].obj;
@@ -184,7 +151,7 @@ export class PdfWysiwyg implements OnInit, AfterViewInit {
     this.service.ctx.beginPath();
     this.service.ctx.arc(item.x, item.y, item.w / 2, 0, 2 * Math.PI);
     this.service.ctx.fill();
-  }
+  }*/
 
 
   // Mouse Event on Canvas
@@ -482,7 +449,7 @@ console.log('pdfScale', pdfScale);
     const stream = doc.pipe(blobStream());
 
     doc.save();
-    
+
     SVGtoPDF(doc, xhr.responseXML.documentElement, 0, 0, { scale: pdfScale });
 
     doc.font('Courier-Bold');

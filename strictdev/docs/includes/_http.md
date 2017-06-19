@@ -23,9 +23,9 @@ Used when the client is requesting a resource on the Web server.
 ```ruby
 this.madame.authPost('company',
   {
-    tag: 'STRICTDEV',
+    tag: 'STRICTD',
     name: 'Strict Development, Inc.',
-    www: 'http://strictdev.com/'
+    www: 'http://strictd.com/'
   }
 )
 .subscribe(

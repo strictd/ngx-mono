@@ -16,6 +16,11 @@ npm start
 
 ```
 
+## Slate Docs of [https://github.com/strictd/ngx-mono/tree/master/strictdev/docs](https://github.com/strictd/ngx-mono/tree/master/strictdev/docs)
+```
+npm run docs
+```
+
 ## Requirements
 * Node
 * NPM

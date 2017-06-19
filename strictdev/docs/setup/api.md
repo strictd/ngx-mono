@@ -47,8 +47,8 @@ const api_settings = {
 
 
 ## HTTP Server Settings
-### http_server (***boolean***)
-default: ***true***<br /> activate generic server that does not require ssl
+### http_server (**boolean**)
+default: **true**<br /> activate generic server that does not require ssl
 
 CLI: `--http_server true`
 <br />
@@ -58,7 +58,7 @@ app-settings: `http_server: true`
 
 
 ### http_ip (string)
-default: ***'0.0.0.0'***<br />ip address to bind http_server to
+default: **'0.0.0.0'**<br />ip address to bind http_server to
 
 CLI: `--http_ip 0.0.0.0`
 <br />
@@ -68,7 +68,7 @@ app-settings: `http_ip: '0.0.0.0'`
 
 
 ### http_port (int)
-default: ***3080***<br />port to bind http_server to
+default: **3080**<br />port to bind http_server to
 
 CLI: `--http_port 3080`
 <br />
@@ -80,7 +80,7 @@ app-settings: `http_port: 3080`
 
 ## HTTPS Secure Server Settings
 ### https_server (boolean)
-default: ***false***<br />activate ssl server,
+default: **false**<br />activate ssl server,
 
 CLI: `--https_server false`
 <br />
@@ -90,7 +90,7 @@ app-settings: `https_server: false`
 
 
 ### https_ip (string)
-default: ***'0.0.0.0'***<br />ip address to bind ssl_server to
+default: **'0.0.0.0'**<br />ip address to bind ssl_server to
 
 CLI: `--https_ip 0.0.0.0`
 <br />
@@ -100,7 +100,7 @@ app-settings: `https_ip: '0.0.0.0'`
 
 
 ### https_port (int)
-defualt: ***3443***<br />port to bind ssl_server to
+defualt: **3443**<br />port to bind ssl_server to
 
 CLI: `--https_port 3080`
 <br />
@@ -110,7 +110,7 @@ app-settings: `https_port: 3080`
 
 
 ### https_key (string)
-default: ***'./server.key'***<br />filepath - local path to ssl .key file
+default: **'./server.key'**<br />filepath - local path to ssl .key file
 
 CLI: `--https_key './server.key'`
 <br />
@@ -120,7 +120,7 @@ app-settings: `https_key: './server.key'`
 
 
 ### https_cert (string)
-default: ***'./server.cert'***<br />filepath - local path to ssl .crt file
+default: **'./server.cert'**<br />filepath - local path to ssl .crt file
 
 CLI: `--https_cert './server.cert'`
 <br />
@@ -132,7 +132,7 @@ app-settings: `https_cert: './server.cert'`
 
 ## CORS Settings
 ### use_cors (boolean)
-default: ***true***<br />enable Cross Origin Resource Sharing
+default: **true**<br />enable Cross Origin Resource Sharing
 
 CLI: `--use_cors true`
 <br />
@@ -154,7 +154,7 @@ app-settings: `whitelists: '*'`
 
 ## Log Settings
 ### logger (false|string)
-default: ***'dev'***<br />standard is 'dev' passing format argument of [More Info - morgan npm](https://www.npmjs.com/package/morgan#morganformat-options)
+default: **'dev'**<br />standard is 'dev' passing format argument of [More Info - morgan npm](https://www.npmjs.com/package/morgan#morganformat-options)
 
 CLI: `--logger dev`
 <br />
@@ -166,14 +166,14 @@ api-settings: `logger: 'dev'`
 
 ## Jade Settings
 ### jade (boolean)
-default: ***false***<br />Activate jade template parsing
+default: **false**<br />Activate jade template parsing
 ### jade_views (string)
-default: ***'./views'***<br />localpath for loading view templates
+default: **'./views'**<br />localpath for loading view templates
 
 
 ## Body Parser Settings
 ### bodyparser_json (false|object)
-default: ***false***<br />`{}` is enough to turn on the basic json body parser [More Info - body-parser JSON](https://www.npmjs.com/package/body-parser#bodyparserjsonoptions)
+default: **false**<br />`{}` is enough to turn on the basic json body parser [More Info - body-parser JSON](https://www.npmjs.com/package/body-parser#bodyparserjsonoptions)
 
 CLI: `--bodyparser_json false`
 <br />
@@ -183,7 +183,7 @@ app-settings: `bodyparser_json: false`
 
 
 ### bodyparser_urlencoded (false|object)
-default: ***false***<br />`{extended: true}` for basic parsing based on Content-Type header encoding [More Info - body-parser URLencoded](https://www.npmjs.com/package/body-parser#bodyparserurlencodedoptions)
+default: **false**<br />`{extended: true}` for basic parsing based on Content-Type header encoding [More Info - body-parser URLencoded](https://www.npmjs.com/package/body-parser#bodyparserurlencodedoptions)
 
 CLI: `--bodyparser_urlencoded false`
 <br />
@@ -193,7 +193,7 @@ app-settings: `bodyparser_urlencoded: false`
 
 
 ### bodyparser_text (false|object)
-default: ***false***<br />[More Info](https://www.npmjs.com/package/body-parser#bodyparsertextoptions)
+default: **false**<br />[More Info](https://www.npmjs.com/package/body-parser#bodyparsertextoptions)
 
 CLI: `--bodyparser_text false`
 <br />
@@ -215,7 +215,7 @@ app-settings: `session_secret: 'random'`
 
 
 ### concurrent_ttl (int)
-default: ***60***<br />required: ***Redis Sessions***<br />Time To Live for redis concurrent connection limiting
+default: **60**<br />required: **Redis Sessions**<br />Time To Live for redis concurrent connection limiting
 
 CLI: `--concurrent_ttl 60`
 <br />
@@ -225,7 +225,7 @@ api-settings: `concurrent_ttl: 60`
 
 
 ### concurrent_capacity (int)
-default: ***10***<br />required: ***Redis Sessions***<br />Max number of connections per express-session
+default: **10**<br />required: **Redis Sessions**<br />Max number of connections per express-session
 
 CLI: `--concurrent_capacity 10`
 <br />
@@ -235,7 +235,7 @@ api-settings: `concurrent_capacity: 10`
 
 
 ### ratelimit_replenish (int)
-default: ***100***<br />required: ***Redis Sessions***<br />Rate limit per second
+default: **100**<br />required: **Redis Sessions**<br />Rate limit per second
 
 CLI: `--ratelimit_replenish 100`
 <br />
@@ -245,7 +245,7 @@ api-settings: `ratelimit_replenish: 100`
 
 
 ### ratelimit_burst (int)
-default: ***2***<br />required: ***Redis Sessions***<br />Burst of (value * ratelimit_replenish)
+default: **2**<br />required: **Redis Sessions**<br />Burst of (value * ratelimit_replenish)
 
 CLI: `--ratelimit_burst 2`
 <br />

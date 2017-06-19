@@ -1,27 +1,32 @@
 # NGX-MONO
 # Strict Development Monorepo for Angular
 
-## Requirements
-- Node
-- NPM
+# Setups
 
-## Quickstart
-- Clone Repo
-- Install NPM Modules
-- Checkout strictdev git branch
-- Navigate to strictdev/public_website
-- Run Clientside Dev server
-- Open Browser to <http://localhost:8080>
+## Quick start
+
+* clone our repo
+* change directory to your app
+* install the dependencies with npm
+* start the example registration server
+* go to [http://localhost:8080](http://localhost:8080) in your browser.
 
 ```
-git clone https://github.com/strictd/ngx-mono.git
+git clone http://github.com/strictd/ngx-mono.git
 cd ngx-mono
 npm install
-git checkout strictdev
-cd strictdev
-cd public_website
 npm start
 ```
+
+## Requirements
+* Node
+* NPM
+
+### Windows
+
+### Mac
+
+### Linux
 
 ## Adding NPM Modules
 Make sure you are in the ngx-mono root before adding npm modules

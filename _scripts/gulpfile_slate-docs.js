@@ -42,7 +42,7 @@ var getPageData = function() {
   var config = readIndexYml();
 
   var includes = config.includes
-        .map(function(include) { return path.join(relPath, 'includes/', `${include}.md`); })
+        .map(function(include) { return path.join(relPath, `${include}.md`); })
         .map(function(include) { return fs.readFileSync(include, 'utf8'); })
         .map(function(include) { return marked(include, { renderer: renderer }); });
 

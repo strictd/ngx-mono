@@ -4,9 +4,11 @@ toc_footers:
 
 includes:
   - main
-  - _setup
-  - _http
-
+  - setup/README
+  - setup/api
+  - setup/project-setup
+  - ajax/README
+  
 search: true
 
 highlight_theme: monokai

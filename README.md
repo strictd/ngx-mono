@@ -12,10 +12,11 @@
 * go to [http://localhost:8080](http://localhost:8080) in your browser.
 
 ```
-git clone http://github.com/strictd/ngx-mono.git
+git clone --depth=1 http://github.com/strictd/ngx-mono.git
 cd ngx-mono
 npm install
 npm start
+
 ```
 
 ## Requirements

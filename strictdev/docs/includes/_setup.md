@@ -13,6 +13,7 @@ git clone http://github.com/strictd/ngx-mono.git
 cd ngx-mono
 npm install
 npm start
+
 ```
 
 ## Requirements

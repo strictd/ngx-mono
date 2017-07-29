@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'contact-shared-component',
-  templateUrl: './contact.html',
-  styleUrls: [ 'contact.scss' ]
+  templateUrl: './contact.html'
 })
 
 export class ContactSharedComponent {

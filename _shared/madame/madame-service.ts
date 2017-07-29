@@ -118,7 +118,7 @@ export class MadameService {
     return this.serverList[server].host;
   }
 
-  
+
   get(url: string, server = 'main', headers?: IHeaderList): Observable<Response> {
     const serverInfo: IServerInfo = this.getServer(server) || this.initServer();
     return this.http.get(`${serverInfo.url}${url}`, {headers: this.defaultHeaders(headers)});

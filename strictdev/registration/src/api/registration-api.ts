@@ -1,7 +1,7 @@
 'use strict';
 
 import { readFileSync } from 'fs';
-const api_settings = {
+const api_settings: any = {
   http_server: true,
   http_ip: '0.0.0.0',
   http_port: 14001,
@@ -16,7 +16,7 @@ const api_settings = {
 process.env.api_settings = api_settings;
 
 process.env.IP = '0.0.0.0';
-process.env.PORT = 4001;
+process.env.PORT = '4001';
 
 // process.env.KNEX_SHOW_SQL = true;
 // process.env.GOOGLE_API_SHEET = '';
@@ -24,7 +24,7 @@ process.env.PORT = 4001;
 // process.env.GOOGLE_API_CERT = '';
 process.env.GOOGLE_CAPTCHA = '6LfS7xMUAAAAADwyLK9azcHroZou2UN72ghMRm3P'; // ReCaptcha Serverside Key
 
-process.env.SHIRTID_CASESENSITIVE = false;
+process.env.SHORTID_CASESENSITIVE = 'false';
 process.env.SHORTID_CHARS = '23456789-ABCDEFGHJKLMNPQRSTVWXYZ';
 process.env.SHORTID_REMOVEWORDS = 'anal,anus,arse,ass,ballsack,balls,bastard,bitch,biatch,bloody,blowjob,blowjob,bollock,bollok,boner,boob,bugger,bum,butt,buttplug,clitoris,cock,coon,crap,cunt,damn,dick,dildo,dyke,fag,feck,fellate,fellatio,felching,fuck,fudgepacker,fudgepacker,flange,goddamn,god,hell,homo,jerk,jizz,knobend,labia,lmao,lmfao,muff,nigger,nigga,omg,penis,piss,poop,prick,pube,pussy,queer,scrotum,sex,shit,slut,smegma,spunk,tit,tosser,turd,twat,vagina,wank,whore,wtf';
 

@@ -36,9 +36,11 @@ export function APIConfig(app: express.Application, settings?: IAPISettings) {
 
   if (app.locals.redisDB) {
     // Redis Session Storage
+    const ENV: any = process.env || {},
+          api_settings: any = ENV.api_settings || {};
     const session = require('express-session');
     const RedisStore = require('connect-redis')(session);
-    const redisSecret = process.env.api_settings.session_secret || Math.random().toString(36).substring(7);
+    const redisSecret = api_settings.session_secret || Math.random().toString(36).substring(7);
     app.use(session({
         store: new RedisStore({
           client: app.locals.redisDB.redis

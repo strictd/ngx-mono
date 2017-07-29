@@ -1,6 +1,6 @@
 import { waterfall } from 'async';
 
-let registrations = {};
+const registrations: any = {};
 
 export function getRegistrationCounts() {
   return Promise.resolve(Object.keys(registrations).length);
@@ -16,7 +16,7 @@ export function getRegistrationQuery(i: number, val: string) {
 
 export function addRegistration(registration: any) {
   const regData: any = Object.assign({}, registration);
-  
+
   const values = [];
   Object.keys(regData).filter(d => (d !== 'shortid' && d !== 'recaptcha')).map(d => values.push(regData[d]));
   registrations[regData.shortid] = values;

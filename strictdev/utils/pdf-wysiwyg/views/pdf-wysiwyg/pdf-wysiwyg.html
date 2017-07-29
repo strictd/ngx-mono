@@ -35,7 +35,8 @@
 
 <pdf-wysiwyg-toolbox *ngIf="service.editable" class="print_hide" #toolbox
     [pdfService]="service" (runDraw)="draw()"
-    (runClearCanvas)="clearCanvas()" (runMakePDF)="makePDF()"
+    (runClearCanvas)="clearCanvas()"
+    (runMakePDF)="makePDF()"
     (stopArrows)="stopArrows($event)"
 ></pdf-wysiwyg-toolbox>
 

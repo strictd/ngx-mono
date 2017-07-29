@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 
 import { IPdfWysiwygCross } from '../../models/i-pdf-wysiwyg-cross';
 
@@ -7,7 +7,7 @@ import { IPdfWysiwygCross } from '../../models/i-pdf-wysiwyg-cross';
   templateUrl: './pdf-wysiwyg-cross.html',
   styleUrls: [ './pdf-wysiwyg-cross.css'.toString() ]
 })
-export class PdfWysiwygCross {
+export class PdfWysiwygCross implements OnInit  {
   @Input('obj') obj: IPdfWysiwygCross;
   @Input('scale') scale = 1;
   @Output() itemClicked = new EventEmitter();

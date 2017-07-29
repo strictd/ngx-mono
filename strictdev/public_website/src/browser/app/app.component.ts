@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
-import { MadameAuth } from '../../../../../_shared/madame/madame-auth';
+import { MadameService } from '../../../../../_shared/madame/madame-service';
 import { MetaService } from '@ngx-meta/core';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -26,7 +26,7 @@ declare var ga: any;
 })
 
 export class App implements OnInit, OnDestroy {
-  service: MadameAuth;
+  service: MadameService;
   router: Router;
   route: ActivatedRoute;
   profile: ProfileApp;
@@ -46,7 +46,7 @@ export class App implements OnInit, OnDestroy {
     _metaService: MetaService,
     _profile: ProfileApp,
     _permissions: PermissionsApp,
-    _service: MadameAuth,
+    _service: MadameService,
     _router: Router,
     _route: ActivatedRoute
   ) {
@@ -55,7 +55,9 @@ export class App implements OnInit, OnDestroy {
     this.router = _router;
     this.metaService = _metaService;
 
-    _service.setServer('main', _config.madameService());
+    _service.setServer('main', 'http://localhost:4001/');
+    _service.setServer('registration', 'http://localhost:4001/');
+
     // this.socket.setServer('main', _config.madameSocket());
 
     _config.setStateParams();

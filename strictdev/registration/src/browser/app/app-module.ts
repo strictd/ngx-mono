@@ -5,9 +5,9 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
-import { MadameService } from '../../../../../_shared/madame/madame-service';
+import { MadameModule } from '../../../../../_shared/madame';
 
-import { ConfigApp } from '../../../../../_shared/config/config.app';
+import { ConfigProvidersModule } from '../../../../../_shared/config/config-providers-module';
 
 import { ClassTransformer } from 'class-transformer';
 
@@ -26,14 +26,14 @@ import { RegistrationModule } from '../registration-module';
     RouterModule,
     ModalModule,
     appRouting,
+    ConfigProvidersModule.forRoot(),
+    MadameModule.forRoot(),
     RegistrationModule.forRoot()
   ],
   declarations: [
     App
   ],
   providers: [
-    ConfigApp,
-    MadameService,
     ClassTransformer
   ],
   bootstrap: [ App ],

@@ -31,7 +31,7 @@ export class FormComponent {
   gotCaptcha = false;
   sending = false;
 
-  constructor(_service: RegistrationService,// _change: ChangeDetectorRef,
+  constructor(_service: RegistrationService, // _change: ChangeDetectorRef,
               _router: Router, _platform: PlatformLocation,
               _route: ActivatedRoute) {
     this.service = _service;

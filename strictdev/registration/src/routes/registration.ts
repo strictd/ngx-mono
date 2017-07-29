@@ -18,7 +18,6 @@ const router = Router();
 
 const squareup_base_url = process.env.SQUARE_BASE_URL || '',
       square_access_token = process.env.SQUARE_ACCESS_TOKEN || '',
-      
 
       google_captcha_secret = process.env.GOOGLE_CAPTCHA || '',
       shortid_casesensitive = process.env.SHORTID_CASESENSITIVE || false,
@@ -81,7 +80,7 @@ router.post('/registration.json', (req, res) => {
     );
   }).
 
-  // Generate SHORT ID  
+  // Generate SHORT ID
   then(data => {
     shortid.characters(shortid_chars);
     const searchWords = shortid_removewords;

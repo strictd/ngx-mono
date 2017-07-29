@@ -5,7 +5,6 @@ import { Http, RequestOptions } from '@angular/http';
 import { JwtHelper, AuthHttp, AuthConfig } from 'angular2-jwt';
 import { MadameService } from './madame-service';
 import { MadameSocket } from './madame-socket';
-import { MadameAuth } from './madame-auth';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -34,8 +33,7 @@ export class MadameModule {
         },
         JwtHelper,
         MadameService,
-        MadameSocket,
-        MadameAuth
+        MadameSocket
       ]
     };
   }

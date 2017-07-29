@@ -30,7 +30,7 @@ class ConcurrentLimit {
         this._DB = config.client;
         this.defineRater();
       }
-    } catch (_e) { }  
+    } catch (_e) { }
   }
   public static get redis(): Redis {
     if (!this._DB) {

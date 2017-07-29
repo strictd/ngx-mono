@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 
 import { EventInfoComponent } from './views/event-info/event-info';
 import { FormComponent } from './views/form-component/form-component';
-import { MadameModule } from '../../../../_shared/madame';
 import { PdfWysiwygModule } from '../../../utils/pdf-wysiwyg/pdf-wysiwyg-module';
 import { RecaptchaComponent } from '../../../utils/recaptcha/recaptcha';
 import { RegisteredComponent } from './views/registered/registered';
@@ -19,7 +18,6 @@ import { TemplateComponent } from './views/template/template';
   imports: [
     CommonModule,
     FormsModule,
-    MadameModule.forRoot(),
     PdfWysiwygModule.forRoot(),
     RouterModule
   ],

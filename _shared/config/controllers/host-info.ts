@@ -5,23 +5,25 @@ namespace HostInfo {
 
   'use strict';
 
-  export function getHost(req: Request) {
+  export function getHost(req: Request): string {
     const host = getOrigin(req) || '';
     if (host) { return Url.parse(host).host; }
     return host;
   }
 
-  export function getIp(req: Request) {
-    return req.headers['x-forwarded-for'] || req.connection.remoteAddress || '';
+  export function getIp(req: Request): string {
+    const headers: any = req.headers || {},
+          connection: any = req.connection || {};
+    return headers['x-forwarded-for'] || connection.remoteAddress || '';
   }
 
-  export function getOrigin(req: Request) {
-    const headers = req.headers || {};
-    return headers['referer'] || req.get('origin');
+  export function getOrigin(req: Request): string {
+    const headers: any = req.headers || {};
+    return headers.referer || req.get('origin');
   }
 
-  export function getIdentFromHost(req: Request) {
-    const host = getHost(req);
+  export function getIdentFromHost(req: Request): string {
+    const host: any = getHost(req);
     switch (host) {
       case 'localhost:8080': return null;
     }

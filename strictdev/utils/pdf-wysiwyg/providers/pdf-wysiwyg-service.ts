@@ -2,7 +2,7 @@ import { Injectable, OnDestroy, EventEmitter } from '@angular/core';
 
 // import { plainToClass } from 'class-transformer';
 import { Subscription } from 'rxjs/Subscription';
-import { MadameAuth } from '../../../../_shared/madame/madame-auth';
+import { MadameService } from '../../../../_shared/madame/madame-service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { series as async_series } from 'async';
@@ -79,9 +79,9 @@ export class PdfWysiwygService implements OnDestroy {
     'ellipse': IPdfWysiwygEllipse
   };
 
-  madame: MadameAuth;
+  madame: MadameService;
 
-  constructor(_madame: MadameAuth) {
+  constructor(_madame: MadameService) {
     this.madame = _madame;
     this.itemChanged = new EventEmitter();
     this.changeSub = this.itemChanged.subscribe(item => this.activeItem = item);
@@ -287,5 +287,5 @@ export class PdfWysiwygService implements OnDestroy {
     this.ctx.beginPath();
     this.ctx.arc(item.x, item.y, item.w / 2, 0, 2 * Math.PI);
     this.ctx.fill();
-  }*/  
+  }*/
 }

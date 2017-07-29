@@ -50,7 +50,8 @@ module.exports = function makeWebpackConfig() {
         _styles = resolvePath(dotenv.BROWSER_STYLES, _srcDir, 'styles'),
         _global_assets = resolvePath(dotenv.GLOBAL_ASSETS, root('../'), '_assets'),
         _entry_dev = resolvePath(dotenv.BROWSER_ENTRY_DEV, _srcDir, 'app/main.dev.ts'),
-        _entry_prod = resolvePath(dotenv.BROWSER_ENTRY_PROD, _srcDir, 'app/main.prod.ts')
+        _entry_prod = resolvePath(dotenv.BROWSER_ENTRY_PROD, _srcDir, 'app/main.prod.ts'),
+        _index_html = resolvePath(dotenv.BROWSER_INDEX_HTML, _assets, 'index.html')
   ;
 
   const _devServer_host = dotenv.BROWSER_DEV_HOST || '0.0.0.0',
@@ -130,7 +131,6 @@ module.exports = function makeWebpackConfig() {
    * List: http://webpack.github.io/docs/list-of-loaders.html
    * This handles most of the magic responsible for converting modules
    */
-  console.log('DOTENV', dotenv.MADAME_API_PROD);
   config.module = {
     rules: [
       {
@@ -150,8 +150,8 @@ module.exports = function makeWebpackConfig() {
         loaders: [
           'awesome-typescript-loader?' + atlOptions,
           'angular-router-loader',
-          'angular2-template-loader',
-          '@angularclass/hmr-loader'
+          'angular2-template-loader'// ,
+          // '@angularclass/hmr-loader'
         ],
         exclude: [isTest ? /\.(e2e)\.ts$/ : /\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
       },
@@ -176,10 +176,31 @@ module.exports = function makeWebpackConfig() {
       {
         test: /\.css$/,
         include: [_node_modules, _styles],
-        loader: isTest ? 'null' : ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'postcss-loader']})
+        loader: isTest ? 'null' : ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+              { loader: 'css-loader' },
+              { loader: 'postcss-loader',
+                options: {
+                  plugins: (loader) => [
+                    require('autoprefixer')
+                  ]
+                }
+              }
+            ]
+        })
       },
       // all css required in src/app files will be merged in js files
-      {test: /\.css$/, exclude: [_node_modules, _styles], loader: 'raw-loader!postcss-loader'},
+      {test: /\.css$/, exclude: [_node_modules, _styles], loader: [
+        { loader: 'raw-loader' },
+        { loader: 'postcss-loader',
+          options: {
+            plugins: (loader) => [
+              require('autoprefixer')
+            ]
+          }
+        }
+      ]},
 
       // support for .scss files
       // use 'null' loader in test mode (https://github.com/webpack/null-loader)
@@ -187,10 +208,33 @@ module.exports = function makeWebpackConfig() {
       {
         test: /\.scss$/,
         include: [_node_modules, _styles],
-        loader: isTest ? 'null' : ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'postcss-loader', 'sass-loader']})
+        loader: isTest ? 'null' : ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+              { loader: 'css-loader' },
+              { loader: 'postcss-loader',
+                options: {
+                  plugins: (loader) => [
+                    require('autoprefixer')
+                  ]
+                }
+              },
+              { loader: 'sass-loader' }
+            ]
+        })
       },
       // all css required in src/app files will be merged in js files
-      {test: /\.scss$/, exclude: [_node_modules, _styles], loader: 'raw-loader!postcss-loader!sass-loader'},
+      {test: /\.scss$/, exclude: [_node_modules, _styles], loader: [
+        { loader: 'raw-loader' },
+        { loader: 'postcss-loader',
+          options: {
+            plugins: (loader) => [
+              require('autoprefixer')
+            ]
+          }
+        },
+        { loader: 'sass-loader' }
+      ]},
 
       // support for .sass files
       // user 'null' loader in test mode (https://github.com/webpack/null-loader)
@@ -198,10 +242,33 @@ module.exports = function makeWebpackConfig() {
       {
         test: /\.sass$/,
         include: [_node_modules, _styles],
-        loader: isTest ? 'null' : ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'postcss-loader', 'sass-loader']})
+        loader: isTest ? 'null' : ExtractTextPlugin.extract({
+            fallback: 'style-loader', 
+            use: [
+              { loader: 'css-loader' },
+              { loader: 'postcss-loader',
+                options: {
+                  plugins: (loader) => [
+                    require('autoprefixer')
+                  ]
+                }
+              },
+              { loader: 'sass-loader' }
+            ]
+        })
       },
       // all css required in src/app files will be merged in js files
-      {test: /\.sass$/, exclude: [_node_modules, _styles], loader: 'raw-loader!postcss-loader!sass-loader?indentedSyntax'},
+      {test: /\.sass$/, exclude: [_node_modules, _styles], loader: [
+        { loader: 'raw-loader' },
+        { loader: 'postcss-loader',
+          options: {
+            plugins: (loader) => [
+              require('autoprefixer')
+            ]
+          }
+        },
+        { loader: 'sass-loader?indentedSyntax'}
+      ]},
 
 
       // support for .html as raw text
@@ -257,39 +324,39 @@ module.exports = function makeWebpackConfig() {
       // The (\\|\/) piece accounts for path separators in *nix and Windows
       /angular(\\|\/)core(\\|\/)@angular/,
       _srcDir // location of your src
-    ),
+    )
 
     // Tslint configuration for webpack 2
-    new webpack.LoaderOptionsPlugin({
-      options: {
+//    new webpack.LoaderOptionsPlugin({
+//      options: {
         /**
          * Apply the tslint loader as pre/postLoader
          * Reference: https://github.com/wbuchwalter/tslint-loader
          */
-        tslint: {
-          emitErrors: false,
-          failOnHint: false
-        },
+//        tslint: {
+//          emitErrors: false,
+//          failOnHint: false
+//        },
         /**
          * Sass
          * Reference: https://github.com/jtangelder/sass-loader
          * Transforms .scss files to .css
          */
-        sassLoader: {
+//        sassLoader: {
           //includePaths: [path.resolve(__dirname, "node_modules/foundation-sites/scss")]
-        },
+//        },
         /**
          * PostCSS
          * Reference: https://github.com/postcss/autoprefixer-core
          * Add vendor prefixes to your css
          */
-        postcss: [
-          autoprefixer({
-            browsers: ['last 2 version']
-          })
-        ]
-      }
-    })
+//        postcss: [
+//          autoprefixer({
+//            browsers: ['last 2 version']
+//          })
+//        ]
+//      }
+//    })
   ];
 
   if (!isTest && !isProd) {
@@ -309,7 +376,8 @@ module.exports = function makeWebpackConfig() {
       // Inject script and link tags into html files
       // Reference: https://github.com/ampedandwired/html-webpack-plugin
       new HtmlWebpackPlugin({
-        template: path.join(_assets, 'index.html'),
+        inject: 'body',
+        template: _index_html,
         chunksSortMode: 'dependency'
       }),
 
@@ -384,7 +452,6 @@ module.exports = function makeWebpackConfig() {
     port: _devServer_port
   };
 
-console.log('FIX DEV_SERVER SSL FLAG', _devServer_ssl);
   if (_devServer_ssl) {
    // config.devServer.https = true;
    // config.devServer.inline = false;

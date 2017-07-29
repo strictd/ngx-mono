@@ -48,7 +48,7 @@ const routes: Routes = [
       }
     }
   },
-  
+
   { path: 'registration',
     loadChildren: '../../../../registration/src/browser/registration-routing#RegistrationRouting'
   },

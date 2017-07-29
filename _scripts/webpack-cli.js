@@ -30,7 +30,7 @@ console.log('Webpack Config: ', __filename);
 console.log('Minify: ', (minify)?'Yes':'No');
 console.log('Banner: ', (banner)?'Yes':'No');
 
-const ENV = process.env.npm_lifecycle_event,
+const ENV = process.env.npm_lifecycle_event || '',
       isTestWatch = ENV === 'test-watch',
       isTest = ENV === 'test' || isTestWatch,
       buildEnv = ENV.match(/.*?:build/g),

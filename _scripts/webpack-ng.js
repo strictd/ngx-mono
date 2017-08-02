@@ -119,7 +119,9 @@ module.exports = function makeWebpackConfig() {
   config.externals = [{ './cptable': 'var cptable' }];
   
 
-  let atlOptions = `configFileName=../../_scripts/tsconfig-browser.json&`;
+  const tsconfigBrowser = path.join(_scriptsDir, 'tsconfig-browser.json');
+  let atlOptions = `configFileName=${tsconfigBrowser}&`;
+  console.log(atlOptions);
   if (isTest && !isTestWatch) {
     // awesome-typescript-loader needs to output inlineSourceMap for code coverage to work with source maps.
     atlOptions = `${atlOptions}inlineSourceMap=true&sourceMap=false&`;
@@ -295,7 +297,7 @@ module.exports = function makeWebpackConfig() {
       enforce: 'pre',
       loader: 'tslint-loader',
       options: {
-        configFile: `../../_scripts/tslint.json`
+        configFile: path.join(_scriptsDir, 'tslint.json')
       }
     });
   }

@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "lint": "node ../node_modules/tslint/bin/tslint --force \"src/**/*.ts\" --config ./tslint.json",
+    "start": "node ../node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ../_scripts/webpack-ng.js --env .env",
+    "build": "node ../node_modules/webpack/bin/webpack.js --progress --profile --bail --config ../_scripts/webpack-ng.js --env .env"
+  },
+  "dependencies": {
+    "angular-in-memory-web-api": "^0.3.2"
+  }
+}

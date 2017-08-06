@@ -11,27 +11,53 @@ import * as i1 from '../homepage-layout/homepage-layout.ngfactory';
 import * as i2 from '../../../../../src/browser/views/homepage-layout/homepage-layout';
 import * as i3 from '../../../shared/homepage/homepage.ngfactory';
 import * as i4 from '../../../../../src/shared/homepage/homepage';
-import * as i5 from '../../../../../src/browser/views/homepage/homepage';
+import * as i5 from '@angular/router';
+import * as i6 from '@angular/common';
+import * as i7 from '../../../../../src/browser/views/homepage/homepage';
 const styles_HomepageComponent:any[] = ([] as any[]);
 export const RenderType_HomepageComponent:i0.RendererType2 = i0.ɵcrt({encapsulation:2,
     styles:styles_HomepageComponent,data:{}});
 export function View_HomepageComponent_0(_l:any):i0.ɵViewDefinition {
-  return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),5,'homepage-layout',
+  return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),13,'homepage-layout',
       ([] as any[]),(null as any),(null as any),(null as any),i1.View_HomepageLayout_0,
       i1.RenderType_HomepageLayout)),i0.ɵdid(49152,(null as any),0,i2.HomepageLayout,
       ([] as any[]),(null as any),(null as any)),(_l()(),i0.ɵted(0,['\n  '])),(_l()(),
       i0.ɵeld(0,(null as any),0,1,'homepage-shared-component',([] as any[]),(null as any),
           (null as any),(null as any),i3.View_HomepageSharedComponent_0,i3.RenderType_HomepageSharedComponent)),
       i0.ɵdid(49152,(null as any),0,i4.HomepageSharedComponent,([] as any[]),(null as any),
-          (null as any)),(_l()(),i0.ɵted(0,['\n'])),(_l()(),i0.ɵted((null as any),
-          ['\n\n\n  \n\n\n']))],(null as any),(null as any));
+          (null as any)),(_l()(),i0.ɵted(0,['\n  '])),(_l()(),i0.ɵeld(0,(null as any),
+          0,0,'br',([] as any[]),(null as any),(null as any),(null as any),(null as any),
+          (null as any))),(_l()(),i0.ɵted(0,['\n  '])),(_l()(),i0.ɵeld(0,(null as any),
+          0,4,'p',[['class','txt4'],['s','']],(null as any),(null as any),(null as any),
+          (null as any),(null as any))),(_l()(),i0.ɵeld(0,(null as any),(null as any),
+          3,'a',[['class','call_to_action']],[[1,'target',0],[8,'href',4]],[[(null as any),
+              'click']],(_v,en,$event) => {
+            var ad:boolean = true;
+            if (('click' === en)) {
+              const pd_0:any = ((<any>i0.ɵnov(_v,10).onClick($event.button,$event.ctrlKey,
+                  $event.metaKey,$event.shiftKey)) !== false);
+              ad = (pd_0 && ad);
+            }
+            return ad;
+          },(null as any),(null as any))),i0.ɵdid(671744,(null as any),0,i5.RouterLinkWithHref,
+          [i5.Router,i5.ActivatedRoute,i6.LocationStrategy],{routerLink:[0,'routerLink']},
+          (null as any)),i0.ɵpad(1),(_l()(),i0.ɵted((null as any),['How We Do It'])),
+      (_l()(),i0.ɵted(0,['\n'])),(_l()(),i0.ɵted((null as any),['\n\n\n  \n\n\n']))],
+      (_ck,_v) => {
+        const currVal_2:any = _ck(_v,11,0,'/code');
+        _ck(_v,10,0,currVal_2);
+      },(_ck,_v) => {
+        const currVal_0:any = i0.ɵnov(_v,10).target;
+        const currVal_1:any = i0.ɵnov(_v,10).href;
+        _ck(_v,9,0,currVal_0,currVal_1);
+      });
 }
 export function View_HomepageComponent_Host_0(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),1,'homepage-component',
       ([] as any[]),(null as any),(null as any),(null as any),View_HomepageComponent_0,
-      RenderType_HomepageComponent)),i0.ɵdid(49152,(null as any),0,i5.HomepageComponent,
+      RenderType_HomepageComponent)),i0.ɵdid(49152,(null as any),0,i7.HomepageComponent,
       ([] as any[]),(null as any),(null as any))],(null as any),(null as any));
 }
-export const HomepageComponentNgFactory:i0.ComponentFactory<i5.HomepageComponent> = i0.ɵccf('homepage-component',
-    i5.HomepageComponent,View_HomepageComponent_Host_0,{},{},([] as any[]));
-//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvU3BlZWRlci9Eb2N1bWVudHMvbmd4LWZ1Y2svc3RyaWN0ZGV2L3B1YmxpY193ZWJzaXRlL3NyYy9icm93c2VyL3ZpZXdzL2hvbWVwYWdlL2hvbWVwYWdlLm5nZmFjdG9yeS50cyIsInZlcnNpb24iOjMsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm5nOi8vL0M6L1VzZXJzL1NwZWVkZXIvRG9jdW1lbnRzL25neC1mdWNrL3N0cmljdGRldi9wdWJsaWNfd2Vic2l0ZS9zcmMvYnJvd3Nlci92aWV3cy9ob21lcGFnZS9ob21lcGFnZS50cyIsIm5nOi8vL0M6L1VzZXJzL1NwZWVkZXIvRG9jdW1lbnRzL25neC1mdWNrL3N0cmljdGRldi9wdWJsaWNfd2Vic2l0ZS9zcmMvYnJvd3Nlci92aWV3cy9ob21lcGFnZS9ob21lcGFnZS5odG1sIiwibmc6Ly8vQzovVXNlcnMvU3BlZWRlci9Eb2N1bWVudHMvbmd4LWZ1Y2svc3RyaWN0ZGV2L3B1YmxpY193ZWJzaXRlL3NyYy9icm93c2VyL3ZpZXdzL2hvbWVwYWdlL2hvbWVwYWdlLnRzLkhvbWVwYWdlQ29tcG9uZW50X0hvc3QuaHRtbCJdLCJzb3VyY2VzQ29udGVudCI6WyIgIiwiPGhvbWVwYWdlLWxheW91dD5cclxuICA8aG9tZXBhZ2Utc2hhcmVkLWNvbXBvbmVudD48L2hvbWVwYWdlLXNoYXJlZC1jb21wb25lbnQ+XHJcbjwvaG9tZXBhZ2UtbGF5b3V0PlxyXG5cclxuXHJcbiAgXHJcblxyXG5cclxuIiwiPGhvbWVwYWdlLWNvbXBvbmVudD48L2hvbWVwYWdlLWNvbXBvbmVudD4iXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7b0JDQUE7TUFBQTtrQ0FBQSxVQUFBO01BQUEsMkNBQWlCLDZCQUNmO2FBQUE7VUFBQTthQUFBO1VBQUEsZUFBdUQsMkJBQ3ZDO1VBQUE7OztvQkNGbEI7TUFBQTtrQ0FBQSxVQUFBO01BQUE7OzsifQ==
+export const HomepageComponentNgFactory:i0.ComponentFactory<i7.HomepageComponent> = i0.ɵccf('homepage-component',
+    i7.HomepageComponent,View_HomepageComponent_Host_0,{},{},([] as any[]));
+//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvU3BlZWRlci9Eb2N1bWVudHMvbmd4LWZ1Y2svc3RyaWN0ZGV2L3B1YmxpY193ZWJzaXRlL3NyYy9icm93c2VyL3ZpZXdzL2hvbWVwYWdlL2hvbWVwYWdlLm5nZmFjdG9yeS50cyIsInZlcnNpb24iOjMsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm5nOi8vL0M6L1VzZXJzL1NwZWVkZXIvRG9jdW1lbnRzL25neC1mdWNrL3N0cmljdGRldi9wdWJsaWNfd2Vic2l0ZS9zcmMvYnJvd3Nlci92aWV3cy9ob21lcGFnZS9ob21lcGFnZS50cyIsIm5nOi8vL0M6L1VzZXJzL1NwZWVkZXIvRG9jdW1lbnRzL25neC1mdWNrL3N0cmljdGRldi9wdWJsaWNfd2Vic2l0ZS9zcmMvYnJvd3Nlci92aWV3cy9ob21lcGFnZS9ob21lcGFnZS5odG1sIiwibmc6Ly8vQzovVXNlcnMvU3BlZWRlci9Eb2N1bWVudHMvbmd4LWZ1Y2svc3RyaWN0ZGV2L3B1YmxpY193ZWJzaXRlL3NyYy9icm93c2VyL3ZpZXdzL2hvbWVwYWdlL2hvbWVwYWdlLnRzLkhvbWVwYWdlQ29tcG9uZW50X0hvc3QuaHRtbCJdLCJzb3VyY2VzQ29udGVudCI6WyIgIiwiPGhvbWVwYWdlLWxheW91dD5cclxuICA8aG9tZXBhZ2Utc2hhcmVkLWNvbXBvbmVudD48L2hvbWVwYWdlLXNoYXJlZC1jb21wb25lbnQ+XHJcbiAgPGJyIC8+XHJcbiAgPHAgY2xhc3M9XCJ0eHQ0XCIgcz1cIlwiPjxhIGNsYXNzPVwiY2FsbF90b19hY3Rpb25cIiBbcm91dGVyTGlua109XCJbJy9jb2RlJ11cIj5Ib3cgV2UgRG8gSXQ8L2E+PC9wPlxyXG48L2hvbWVwYWdlLWxheW91dD5cclxuXHJcblxyXG4gIFxyXG5cclxuXHJcbiIsIjxob21lcGFnZS1jb21wb25lbnQ+PC9ob21lcGFnZS1jb21wb25lbnQ+Il0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7b0JDQUE7TUFBQTtrQ0FBQSxVQUFBO01BQUEsMkNBQWlCLDZCQUNmO2FBQUE7VUFBQTthQUFBO1VBQUEsZUFBdUQsNkJBQ3ZEO1VBQUE7VUFBQSxnQkFBTSw2QkFDTjtVQUFBO1VBQUEsOEJBQXFCO1VBQUE7Y0FBQTtZQUFBO1lBQUE7Y0FBQTtrQkFBQTtjQUFBO1lBQUE7WUFBQTtVQUFBLHVDQUFBO1VBQUE7VUFBQSxzQkFBMEIsSUFBeUI7TUFBb0IsMkJBQzVFOztRQUQrQjtRQUExQixZQUEwQixTQUExQjs7UUFBQTtRQUFBO1FBQUEsV0FBQSxtQkFBQTs7OztvQkNIdkI7TUFBQTtrQ0FBQSxVQUFBO01BQUE7OzsifQ==

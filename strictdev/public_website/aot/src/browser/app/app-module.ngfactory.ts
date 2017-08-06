@@ -118,7 +118,6 @@ export const AppModuleNgFactory:i0.NgModuleFactory<i1.AppModule> = i0.ɵcmf(i1.A
                         data:{meta:{title:'People | Strict Development, Inc',description:'People of Strict Development'}}},
                     {path:'contact',component:i30.ContactComponent,canActivate:[i25.MetaGuard],
                         data:{meta:{title:'Contact | Strict Development, Inc',description:'Get A hold of us'}}},
-                    {path:'registration',loadChildren:'../../../../registration/src/browser/registration-routing#RegistrationRouting'},
                     {path:'',redirectTo:'/home',pathMatch:'full'},{path:'**',component:i31.PageNotFoundComponent}]];
               },([] as any[])),i0.ɵmpd(1024,i20.Router,i20.ɵe,[i0.ApplicationRef,i20.UrlSerializer,
               i20.ChildrenOutletContexts,i9.Location,i0.Injector,i0.NgModuleFactoryLoader,
@@ -142,4 +141,4 @@ export const AppModuleNgFactory:i0.NgModuleFactory<i1.AppModule> = i0.ɵcmf(i1.A
               i38.WebsiteModule,([] as any[])),i0.ɵmpd(512,i1.AppModule,i1.AppModule,
               [i0.ApplicationRef])]);
     });
-//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvU3BlZWRlci9Eb2N1bWVudHMvbmd4LWZ1Y2svc3RyaWN0ZGV2L3B1YmxpY193ZWJzaXRlL3NyYy9icm93c2VyL2FwcC9hcHAtbW9kdWxlLm5nZmFjdG9yeS50cyIsInZlcnNpb24iOjMsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm5nOi8vL0M6L1VzZXJzL1NwZWVkZXIvRG9jdW1lbnRzL25neC1mdWNrL3N0cmljdGRldi9wdWJsaWNfd2Vic2l0ZS9zcmMvYnJvd3Nlci9hcHAvYXBwLW1vZHVsZS50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIgIl0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7In0=
+//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvU3BlZWRlci9Eb2N1bWVudHMvbmd4LWZ1Y2svc3RyaWN0ZGV2L3B1YmxpY193ZWJzaXRlL3NyYy9icm93c2VyL2FwcC9hcHAtbW9kdWxlLm5nZmFjdG9yeS50cyIsInZlcnNpb24iOjMsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm5nOi8vL0M6L1VzZXJzL1NwZWVkZXIvRG9jdW1lbnRzL25neC1mdWNrL3N0cmljdGRldi9wdWJsaWNfd2Vic2l0ZS9zcmMvYnJvd3Nlci9hcHAvYXBwLW1vZHVsZS50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIgIl0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OzsifQ==

@@ -11,27 +11,53 @@ import * as i1 from '../homepage-layout/homepage-layout.ngfactory';
 import * as i2 from '../../../../../src/browser/views/homepage-layout/homepage-layout';
 import * as i3 from '../../../shared/code/code.ngfactory';
 import * as i4 from '../../../../../src/shared/code/code';
-import * as i5 from '../../../../../src/browser/views/code/code';
+import * as i5 from '@angular/router';
+import * as i6 from '@angular/common';
+import * as i7 from '../../../../../src/browser/views/code/code';
 const styles_CodeComponent:any[] = ([] as any[]);
 export const RenderType_CodeComponent:i0.RendererType2 = i0.ɵcrt({encapsulation:2,
     styles:styles_CodeComponent,data:{}});
 export function View_CodeComponent_0(_l:any):i0.ɵViewDefinition {
-  return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),5,'homepage-layout',
+  return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),13,'homepage-layout',
       ([] as any[]),(null as any),(null as any),(null as any),i1.View_HomepageLayout_0,
       i1.RenderType_HomepageLayout)),i0.ɵdid(49152,(null as any),0,i2.HomepageLayout,
       ([] as any[]),(null as any),(null as any)),(_l()(),i0.ɵted(0,['\n  '])),(_l()(),
       i0.ɵeld(0,(null as any),0,1,'code-shared-component',([] as any[]),(null as any),
           (null as any),(null as any),i3.View_CodeSharedComponent_0,i3.RenderType_CodeSharedComponent)),
       i0.ɵdid(49152,(null as any),0,i4.CodeSharedComponent,([] as any[]),(null as any),
-          (null as any)),(_l()(),i0.ɵted(0,['\n'])),(_l()(),i0.ɵted((null as any),
-          ['\n\n\n  \n\n\n']))],(null as any),(null as any));
+          (null as any)),(_l()(),i0.ɵted(0,['\n  '])),(_l()(),i0.ɵeld(0,(null as any),
+          0,0,'br',([] as any[]),(null as any),(null as any),(null as any),(null as any),
+          (null as any))),(_l()(),i0.ɵted(0,['\n  '])),(_l()(),i0.ɵeld(0,(null as any),
+          0,4,'p',[['class','txt4']],(null as any),(null as any),(null as any),(null as any),
+          (null as any))),(_l()(),i0.ɵeld(0,(null as any),(null as any),3,'a',[['class',
+          'call_to_action']],[[1,'target',0],[8,'href',4]],[[(null as any),'click']],
+          (_v,en,$event) => {
+            var ad:boolean = true;
+            if (('click' === en)) {
+              const pd_0:any = ((<any>i0.ɵnov(_v,10).onClick($event.button,$event.ctrlKey,
+                  $event.metaKey,$event.shiftKey)) !== false);
+              ad = (pd_0 && ad);
+            }
+            return ad;
+          },(null as any),(null as any))),i0.ɵdid(671744,(null as any),0,i5.RouterLinkWithHref,
+          [i5.Router,i5.ActivatedRoute,i6.LocationStrategy],{routerLink:[0,'routerLink']},
+          (null as any)),i0.ɵpad(1),(_l()(),i0.ɵted((null as any),['Contact Us'])),
+      (_l()(),i0.ɵted(0,['  \n'])),(_l()(),i0.ɵted((null as any),['\n\n\n  \n\n\n']))],
+      (_ck,_v) => {
+        const currVal_2:any = _ck(_v,11,0,'/contact');
+        _ck(_v,10,0,currVal_2);
+      },(_ck,_v) => {
+        const currVal_0:any = i0.ɵnov(_v,10).target;
+        const currVal_1:any = i0.ɵnov(_v,10).href;
+        _ck(_v,9,0,currVal_0,currVal_1);
+      });
 }
 export function View_CodeComponent_Host_0(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,(null as any),(null as any),1,'code-component',
       ([] as any[]),(null as any),(null as any),(null as any),View_CodeComponent_0,
-      RenderType_CodeComponent)),i0.ɵdid(49152,(null as any),0,i5.CodeComponent,([] as any[]),
+      RenderType_CodeComponent)),i0.ɵdid(49152,(null as any),0,i7.CodeComponent,([] as any[]),
       (null as any),(null as any))],(null as any),(null as any));
 }
-export const CodeComponentNgFactory:i0.ComponentFactory<i5.CodeComponent> = i0.ɵccf('code-component',
-    i5.CodeComponent,View_CodeComponent_Host_0,{},{},([] as any[]));
-//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvU3BlZWRlci9Eb2N1bWVudHMvbmd4LWZ1Y2svc3RyaWN0ZGV2L3B1YmxpY193ZWJzaXRlL3NyYy9icm93c2VyL3ZpZXdzL2NvZGUvY29kZS5uZ2ZhY3RvcnkudHMiLCJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJuZzovLy9DOi9Vc2Vycy9TcGVlZGVyL0RvY3VtZW50cy9uZ3gtZnVjay9zdHJpY3RkZXYvcHVibGljX3dlYnNpdGUvc3JjL2Jyb3dzZXIvdmlld3MvY29kZS9jb2RlLnRzIiwibmc6Ly8vQzovVXNlcnMvU3BlZWRlci9Eb2N1bWVudHMvbmd4LWZ1Y2svc3RyaWN0ZGV2L3B1YmxpY193ZWJzaXRlL3NyYy9icm93c2VyL3ZpZXdzL2NvZGUvY29kZS5odG1sIiwibmc6Ly8vQzovVXNlcnMvU3BlZWRlci9Eb2N1bWVudHMvbmd4LWZ1Y2svc3RyaWN0ZGV2L3B1YmxpY193ZWJzaXRlL3NyYy9icm93c2VyL3ZpZXdzL2NvZGUvY29kZS50cy5Db2RlQ29tcG9uZW50X0hvc3QuaHRtbCJdLCJzb3VyY2VzQ29udGVudCI6WyIgIiwiPGhvbWVwYWdlLWxheW91dD5cclxuICA8Y29kZS1zaGFyZWQtY29tcG9uZW50PjwvY29kZS1zaGFyZWQtY29tcG9uZW50PlxyXG48L2hvbWVwYWdlLWxheW91dD5cclxuXHJcblxyXG4gIFxyXG5cclxuXHJcbiIsIjxjb2RlLWNvbXBvbmVudD48L2NvZGUtY29tcG9uZW50PiJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7OztvQkNBQTtNQUFBO2tDQUFBLFVBQUE7TUFBQSwyQ0FBaUIsNkJBQ2Y7YUFBQTtVQUFBO2FBQUE7VUFBQSxlQUErQywyQkFDL0I7VUFBQTs7O29CQ0ZsQjtNQUFBOzhCQUFBLFVBQUE7TUFBQTs7OyJ9
+export const CodeComponentNgFactory:i0.ComponentFactory<i7.CodeComponent> = i0.ɵccf('code-component',
+    i7.CodeComponent,View_CodeComponent_Host_0,{},{},([] as any[]));
+//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvU3BlZWRlci9Eb2N1bWVudHMvbmd4LWZ1Y2svc3RyaWN0ZGV2L3B1YmxpY193ZWJzaXRlL3NyYy9icm93c2VyL3ZpZXdzL2NvZGUvY29kZS5uZ2ZhY3RvcnkudHMiLCJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJuZzovLy9DOi9Vc2Vycy9TcGVlZGVyL0RvY3VtZW50cy9uZ3gtZnVjay9zdHJpY3RkZXYvcHVibGljX3dlYnNpdGUvc3JjL2Jyb3dzZXIvdmlld3MvY29kZS9jb2RlLnRzIiwibmc6Ly8vQzovVXNlcnMvU3BlZWRlci9Eb2N1bWVudHMvbmd4LWZ1Y2svc3RyaWN0ZGV2L3B1YmxpY193ZWJzaXRlL3NyYy9icm93c2VyL3ZpZXdzL2NvZGUvY29kZS5odG1sIiwibmc6Ly8vQzovVXNlcnMvU3BlZWRlci9Eb2N1bWVudHMvbmd4LWZ1Y2svc3RyaWN0ZGV2L3B1YmxpY193ZWJzaXRlL3NyYy9icm93c2VyL3ZpZXdzL2NvZGUvY29kZS50cy5Db2RlQ29tcG9uZW50X0hvc3QuaHRtbCJdLCJzb3VyY2VzQ29udGVudCI6WyIgIiwiPGhvbWVwYWdlLWxheW91dD5cclxuICA8Y29kZS1zaGFyZWQtY29tcG9uZW50PjwvY29kZS1zaGFyZWQtY29tcG9uZW50PlxyXG4gIDxiciAvPlxyXG4gIDxwIGNsYXNzPVwidHh0NFwiPjxhIGNsYXNzPVwiY2FsbF90b19hY3Rpb25cIiBbcm91dGVyTGlua109XCJbJy9jb250YWN0J11cIj5Db250YWN0IFVzPC9hPjwvcD4gIFxyXG48L2hvbWVwYWdlLWxheW91dD5cclxuXHJcblxyXG4gIFxyXG5cclxuXHJcbiIsIjxjb2RlLWNvbXBvbmVudD48L2NvZGUtY29tcG9uZW50PiJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O29CQ0FBO01BQUE7a0NBQUEsVUFBQTtNQUFBLDJDQUFpQiw2QkFDZjthQUFBO1VBQUE7YUFBQTtVQUFBLGVBQStDLDZCQUMvQztVQUFBO1VBQUEsZ0JBQU0sNkJBQ047VUFBQTtVQUFBLGdCQUFnQjtVQUFBO1VBQUE7WUFBQTtZQUFBO2NBQUE7a0JBQUE7Y0FBQTtZQUFBO1lBQUE7VUFBQSx1Q0FBQTtVQUFBO1VBQUEsc0JBQTBCLElBQTRCO01BQWtCLDZCQUN4RTs7UUFEMEI7UUFBMUIsWUFBMEIsU0FBMUI7O1FBQUE7UUFBQTtRQUFBLFdBQUEsbUJBQUE7Ozs7b0JDSGxCO01BQUE7OEJBQUEsVUFBQTtNQUFBOzs7In0=

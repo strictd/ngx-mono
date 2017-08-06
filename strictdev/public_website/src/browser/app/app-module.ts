@@ -13,9 +13,6 @@ import { ClassTransformer } from 'class-transformer';
 import { appRouting } from './app-routing';
 
 import { App } from '../app/app.component';
-
-import { LoginModule } from '../../../../../_shared/login/browser/login-module';
-import { MadameModule } from '../../../../../_shared/madame';
 import { MetaModule } from '@ngx-meta/core';
 import { WebsiteModule } from '../website-module';
 
@@ -30,8 +27,6 @@ import { WebsiteModule } from '../website-module';
     appRouting,
 
     ConfigProvidersModule.forRoot(),
-    LoginModule,
-    MadameModule.forRoot(),
     MetaModule.forRoot(),
     WebsiteModule
   ],

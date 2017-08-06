@@ -6,6 +6,7 @@
         
         "dev": "node ../../node_modules/concurrently/src/main.js --kill-others \"npm run start\" \"npm run ionic\" ",
         "start": "npm run strictd-public:start",
+        "prod": "npm run strictd-public:start:prod",
         "build": "npm run strictd-public:build",
         "ionic": "npm run ionic:serve",
 
@@ -13,6 +14,7 @@
 
         "strictd-public:publish": "npm run strictd-public:build",
         "strictd-public:start": "node ../../node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ../../_scripts/webpack-ng.js --env ./.env",
+        "strictd-public:start:prod": "node ../../node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ../../_scripts/webpack-ng.js --env ./.env",
         "strictd-public:build": "node ../../node_modules/webpack/bin/webpack.js --progress --profile --bail --config ../../_scripts/webpack-ng.js --env ./.env",
         "strictd-public:clean": "node ../../node_modules/rimraf/bin.js dist/",
 

@@ -31,7 +31,8 @@ const ENV = process.env.npm_lifecycle_event,
       isTestWatch = ENV === 'test-watch',
       isTest = ENV === 'test' || isTestWatch,
       buildEnv = ENV.match(/.*?(:)?build/g),
-      isProd = (buildEnv && buildEnv.length),
+      prodEnv = ENV.match(/.*?(:)?prod/g),
+      isProd = ((buildEnv && buildEnv.length) || (prodEnv && prodEnv.length)),
       useHash = false
 ;
 
@@ -51,9 +52,9 @@ module.exports = function makeWebpackConfig() {
         _styles = resolvePath(dotenv.BROWSER_STYLES, _srcDir, 'styles'),
         _global_assets = resolvePath(dotenv.GLOBAL_ASSETS, root('../'), '_assets'),
         _entry_dev = resolvePath(dotenv.BROWSER_ENTRY_DEV, _srcDir, 'app/main.dev.ts'),
-        _entry_dev_aot = resolvePath(dotenv.BROWSER_ENTRY_DEV, _srcDir, 'app/main.dev.aot.ts'),
+        _entry_dev_aot = resolvePath(dotenv.BROWSER_ENTRY_DEV_AOT, _srcDir, 'app/main.dev.aot.ts'),
         _entry_prod = resolvePath(dotenv.BROWSER_ENTRY_PROD, _srcDir, 'app/main.prod.ts'),
-        _entry_prod_aot = resolvePath(dotenv.BROWSER_ENTRY_DEV, _srcDir, 'app/main.prod.aot.ts'),
+        _entry_prod_aot = resolvePath(dotenv.BROWSER_ENTRY_PROD_AOT, _srcDir, 'app/main.prod.aot.ts'),
         _index_html = resolvePath(dotenv.BROWSER_INDEX_HTML, _assets, 'index.html')
   ;
 
@@ -61,8 +62,9 @@ module.exports = function makeWebpackConfig() {
         _devServer_port = dotenv.BROWSER_DEV_PORT || 8080,
         _devServer_ssl = !!dotenv.BROWSER_DEV_SSL || false
   ;
-    
-  if (_aotEnabled) { console.log("Compiling AOT"); }
+   
+  if (isProd) { console.log('Compiling Production'); } else { console.log('Compiling Development'); }
+  if (_aotEnabled) { console.log('Compiling AOT'); } else { console.log('Compiling JIT'); }
   /**
    * Config
    * Reference: http://webpack.github.io/docs/configuration.html
@@ -90,9 +92,11 @@ module.exports = function makeWebpackConfig() {
      * Entry
      * Reference: http://webpack.github.io/docs/configuration.html#entry
      */
+    const _entry_path = isProd ? (_aotEnabled ? _entry_prod_aot : _entry_prod) : (_aotEnabled ? _entry_dev_aot : _entry_dev);
+    console.log('Entry Path: ', _entry_path);
     config.entry = isTest ? {} : {
       'polyfills': _polyfills,
-      'app': isProd ? (_aotEnabled ? _entry_prod_aot : _entry_prod) : (_aotEnabled ? _entry_dev_aot : _entry_dev) // our angular app
+      'app': _entry_path // our angular app
     };
   }
 

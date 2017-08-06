@@ -1,8 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// import { AuthGuard } from '../../../../../_shared/login/providers/auth-guard';
-// import { LoginComponent } from '../../../../../_shared/login/views/login';
 import { MetaGuard } from '@ngx-meta/core';
 
 import { CodeComponent } from '../views/code/code';
@@ -48,10 +46,6 @@ const routes: Routes = [
       }
     }
   },
-
-//  { path: 'registration',
-//    loadChildren: '../../../../registration/src/browser/registration-routing#RegistrationRouting'
-//  },
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }

@@ -49,9 +49,9 @@ const routes: Routes = [
     }
   },
 
-  { path: 'registration',
-    loadChildren: '../../../../registration/src/browser/registration-routing#RegistrationRouting'
-  },
+//  { path: 'registration',
+//    loadChildren: '../../../../registration/src/browser/registration-routing#RegistrationRouting'
+//  },
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }

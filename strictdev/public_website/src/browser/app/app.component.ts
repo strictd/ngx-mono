@@ -22,7 +22,7 @@ declare var ga: any;
   template: `
   <login-modal></login-modal>
   <router-outlet></router-outlet>`,
-  styleUrls: [ '../styles/app.css'.toString() ]
+  styleUrls: [ '../styles/app.scss' ]
 })
 
 export class App implements OnInit, OnDestroy {

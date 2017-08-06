@@ -9,6 +9,8 @@
         "build": "npm run strictd-public:build",
         "ionic": "npm run ionic:serve",
 
+        "aot": "node ../../node_modules/@angular/compiler-cli/src/main.js -p ./tsconfig-aot.json",
+
         "strictd-public:publish": "npm run strictd-public:build",
         "strictd-public:start": "node ../../node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ../../_scripts/webpack-ng.js --env ./.env",
         "strictd-public:build": "node ../../node_modules/webpack/bin/webpack.js --progress --profile --bail --config ../../_scripts/webpack-ng.js --env ./.env",

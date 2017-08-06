@@ -1,9 +1,8 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { AppModule } from './app-module';
+import { platformBrowser } from '@angular/platform-browser';
+import { AppModuleNgFactory } from '../../../aot/src/browser/app/app-module.ngfactory';
 
 export function main() {
-  return platformBrowserDynamic().bootstrapModule(AppModule);
+  return platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
 }
 
 if (document.readyState === 'complete') {
@@ -11,4 +10,3 @@ if (document.readyState === 'complete') {
 } else {
   document.addEventListener('DOMContentLoaded', main);
 }
-

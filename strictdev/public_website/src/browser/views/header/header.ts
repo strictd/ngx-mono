@@ -18,4 +18,8 @@ export class HomepageHeader implements OnInit, OnDestroy {
   ngOnDestroy() {
 
   }
+
+  runCollapsed() {
+    this.isCollapsed = !this.isCollapsed
+  }
 }

@@ -15,11 +15,6 @@
     "types": [ "node" ],
     "typeRoots": [ "../../node_modules/@types" ]
   },
-  "include": [
-    "src/browser/**/*.ts",
-    "src/providers/**/*.ts",
-    "src/models/**/*.ts"
-  ],
   "exclude": [
     "node_modules/**/*",
     "aot/**/*"

@@ -1,12 +1,13 @@
 import { enableProdMode } from '@angular/core';
-import { platformBrowser }    from '@angular/platform-browser';
-import { AppModuleNgFactory } from '../../../aot/src/browser/app/app-module.ngfactory';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app-module';
 
 // depending on the env mode, enable prod mode or add debugging modules
 enableProdMode();
 
 export function main() {
-  return platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
+  return platformBrowserDynamic().bootstrapModule(AppModule);
 }
 
 if (document.readyState === 'complete') {
@@ -14,3 +15,4 @@ if (document.readyState === 'complete') {
 } else {
   document.addEventListener('DOMContentLoaded', main);
 }
+

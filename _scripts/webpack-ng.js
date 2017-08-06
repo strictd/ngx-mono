@@ -39,7 +39,8 @@ const ENV = process.env.npm_lifecycle_event,
 
 module.exports = function makeWebpackConfig() {
 
-  const _browserSrc = dotenv.BROWSER_SRC || 'src/browser',
+  const _aotEnabled = dotenv.AOT || '',
+        _browserSrc = dotenv.BROWSER_SRC || 'src/browser',
         _browserDest = dotenv.BROWSER_DEST || 'dist',
         _srcDir = path.join(rootDir, _browserSrc) || root(_browserSrc),
         _distDir = path.join(rootDir, _browserDest) || root(_browserDest),
@@ -50,7 +51,9 @@ module.exports = function makeWebpackConfig() {
         _styles = resolvePath(dotenv.BROWSER_STYLES, _srcDir, 'styles'),
         _global_assets = resolvePath(dotenv.GLOBAL_ASSETS, root('../'), '_assets'),
         _entry_dev = resolvePath(dotenv.BROWSER_ENTRY_DEV, _srcDir, 'app/main.dev.ts'),
+        _entry_dev_aot = resolvePath(dotenv.BROWSER_ENTRY_DEV, _srcDir, 'app/main.dev.aot.ts'),
         _entry_prod = resolvePath(dotenv.BROWSER_ENTRY_PROD, _srcDir, 'app/main.prod.ts'),
+        _entry_prod_aot = resolvePath(dotenv.BROWSER_ENTRY_DEV, _srcDir, 'app/main.prod.aot.ts'),
         _index_html = resolvePath(dotenv.BROWSER_INDEX_HTML, _assets, 'index.html')
   ;
 
@@ -59,6 +62,7 @@ module.exports = function makeWebpackConfig() {
         _devServer_ssl = !!dotenv.BROWSER_DEV_SSL || false
   ;
     
+  if (_aotEnabled) { console.log("Compiling AOT"); }
   /**
    * Config
    * Reference: http://webpack.github.io/docs/configuration.html
@@ -88,7 +92,7 @@ module.exports = function makeWebpackConfig() {
      */
     config.entry = isTest ? {} : {
       'polyfills': _polyfills,
-      'app': isProd ? _entry_prod : _entry_dev // our angular app
+      'app': isProd ? (_aotEnabled ? _entry_prod_aot : _entry_prod) : (_aotEnabled ? _entry_dev_aot : _entry_dev) // our angular app
     };
   }
 
@@ -120,8 +124,9 @@ module.exports = function makeWebpackConfig() {
   
 
   const tsconfigBrowser = path.join(_scriptsDir, 'tsconfig-browser.json');
-  let atlOptions = `configFileName=${tsconfigBrowser}&`;
-  console.log(atlOptions);
+  const tsconfigBrowserAOT = path.join(rootDir, 'tsconfig-aot.json');
+
+  let atlOptions = `configFileName=${((_aotEnabled)?tsconfigBrowserAOT:tsconfigBrowser)}&`;
   if (isTest && !isTestWatch) {
     // awesome-typescript-loader needs to output inlineSourceMap for code coverage to work with source maps.
     atlOptions = `${atlOptions}inlineSourceMap=true&sourceMap=false&`;

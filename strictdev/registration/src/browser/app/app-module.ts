@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
-import { MadameModule } from '../../../../../_shared/madame';
+import { MadameModule } from '@strictd/madame/dist/';
 
 import { ConfigProvidersModule } from '../../../../../_shared/config/config-providers-module';
 

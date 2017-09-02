@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MadameService } from '../../../../../_shared/madame/madame-service';
+import { MadameService } from '@strictd/madame/dist/madame-service';
 
 import { Subscription } from 'rxjs/Subscription';
 

@@ -2,7 +2,7 @@ import { Injectable, OnDestroy, EventEmitter } from '@angular/core';
 
 // import { plainToClass } from 'class-transformer';
 import { Subscription } from 'rxjs/Subscription';
-import { MadameService } from '../../../../_shared/madame/madame-service';
+import { MadameService } from '@strictd/madame/dist/madame-service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { series as async_series } from 'async';

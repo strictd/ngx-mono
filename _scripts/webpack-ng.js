@@ -32,7 +32,7 @@ const ENV = process.env.npm_lifecycle_event,
       isTest = ENV === 'test' || isTestWatch,
       buildEnv = ENV.match(/.*?(:)?build/g),
       prodEnv = ENV.match(/.*?(:)?prod/g),
-      isProd = ((buildEnv && buildEnv.length) || (prodEnv && prodEnv.length)),
+      isProd = (dotenv.NODE_ENV === 'production') || ((buildEnv && buildEnv.length) || (prodEnv && prodEnv.length)),
       useHash = false
 ;
 
@@ -135,6 +135,7 @@ module.exports = function makeWebpackConfig() {
     // awesome-typescript-loader needs to output inlineSourceMap for code coverage to work with source maps.
     atlOptions = `${atlOptions}inlineSourceMap=true&sourceMap=false&`;
   }
+  console.log('TS Config: ', atlOptions);
 
   /**
    * Loaders

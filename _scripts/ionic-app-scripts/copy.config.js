@@ -23,7 +23,7 @@ module.exports = {
     dest: '{{WWW}}/fonts'
   },
   copyPolyfills: {
-    src: [`${nodeRoot}/ionic-angular/polyfills/polyfills.js`],
+    src: [`${nodeRoot}/ionic-angular/polyfills/${process.env.IONIC_POLYFILL_FILE_NAME}`],
     dest: '{{BUILD}}'
   },
   copySwToolbox: {

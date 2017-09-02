@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './views/login';
 import { LoginModal } from './views/login-modal';
 import { LoginProvidersModule } from '../providers';
-import { MadameModule } from '../../madame';
+import { MadameModule } from '@strictd/madame/dist';
 
 @NgModule({
   imports: [

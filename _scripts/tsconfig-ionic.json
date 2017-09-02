@@ -6,14 +6,13 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
-    
-    
-    
     "lib": ["dom", "es2015"],
     "allowSyntheticDefaultImports": true,
     "declaration": false,
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "skipLibCheck": true,
+    "noStrictGenericChecks": true
   },
   "include": [
     "src/mobile/**/*.ts",
@@ -21,7 +20,8 @@
     "src/models/**/*.ts"
   ],
   "exclude": [
-    "node_modules/**/*"
+    "aot/**/*",
+    "generated/**/*"
   ],
   "compileOnSave": false,
   "buildOnSave": false,

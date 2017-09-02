@@ -4,7 +4,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { MadameService } from '../../../../_shared/madame/madame-service';
+import { MadameService } from '@strictd/madame/dist/madame-service';
 
 @Injectable()
 export class RegistrationService implements OnInit {

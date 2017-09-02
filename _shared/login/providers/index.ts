@@ -5,7 +5,7 @@ import { ConfigApp } from '../../config/config.app';
 
 import { AuthGuard } from './auth-guard';
 import { LoginService, LoginCmd } from './login-service';
-import { MadameService } from '../../madame/madame-service';
+import { MadameService } from '@strictd/madame/dist/madame-service';
 
 @NgModule({
   imports: [ CommonModule ],

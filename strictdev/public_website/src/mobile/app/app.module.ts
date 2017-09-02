@@ -13,7 +13,7 @@ import { WebsiteModule } from '../website-module';
 
 // import { ConfigProvidersModule } from '../../../../../_shared/config/config-providers-module';
 // import { LoginModule } from '../../../../../_shared/login/mobile/login-module';
-// import { MadameModule } from '../../../../../_shared/madame';
+// import { MadameModule } from '@strictd/dist/madame';
 
 @NgModule({
   imports: [

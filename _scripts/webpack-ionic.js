@@ -5,7 +5,8 @@ const path = require('path'),
       dotenv = require('dotenv').config({path: path.join(rootDir, '.env')}).parsed,
       nodeRoot = dotenv.NODE_MODULES || '',
       webpack = require('webpack'),
-      ionicWebpackFactory = require(process.env.IONIC_WEBPACK_FACTORY);
+      ionicWebpackFactory = require(process.env.IONIC_WEBPACK_FACTORY),
+      ModuleConcatPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
 
 /**
  * Env
@@ -18,6 +19,11 @@ const ENV = process.env.npm_lifecycle_event,
       buildEnv = ENV.match(/.*?(:)?build/g),
       isProd = (buildEnv && buildEnv.length)
 ;
+
+const prodPlugins = [];
+if (isProd) {
+  prodPlugins.push(new ModuleConcatPlugin());
+}
 
 module.exports = {
   entry: process.env.IONIC_APP_ENTRY_POINT,
@@ -69,9 +75,10 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({sourceMap: true, mangle: { keep_fnames: true }}),
+    // new webpack.optimize.UglifyJsPlugin({sourceMap: true, mangle: { keep_fnames: true }}),
     ionicWebpackFactory.getIonicEnvironmentPlugin()
-  ],
+    // ionicWebpackFactory.getCommonChunksPlugin()
+  ].concat(prodPlugins),
 
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

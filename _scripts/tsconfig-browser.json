@@ -20,7 +20,8 @@
     "src/models/**/*.ts"
   ],
   "exclude": [
-    "node_modules/**/*"
+    "aot/**/*",
+    "generated/**/*"
   ],
   "compileOnSave": false,
   "buildOnSave": false,

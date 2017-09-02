@@ -2,7 +2,7 @@ import { plainToClass } from 'class-transformer';
 
 import { Injectable, OnDestroy } from '@angular/core';
 import { JwtHelper } from 'angular2-jwt';
-import { MadameService } from '../../madame/madame-service';
+import { MadameService } from '@strictd/madame/dist/madame-service';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 
